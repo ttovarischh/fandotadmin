@@ -1,0 +1,8 @@
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<div class="field">
+		<%= f.text_area :body, class: 'lal' %>
+	</div>
+		<div class="actions">
+		<%= f.submit 'отправить', :class => 'lol' %>
+	</div>
+<% end %>

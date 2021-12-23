@@ -1,0 +1,22 @@
+<div class="separate">
+  <div class="uppercomment">
+    <div class="avatar">
+      <%= link_to image_tag(User.find(comment.user_id).avatar_thumbnail, class: 'av'), comment.user %>
+    </div>
+    <p class="commenter">
+      <%= User.find(comment.user_id).username %>
+    </p>
+    <span><%= time_ago_in_words(comment.created_at) %> назад</span>
+  </div>
+  <p class="body">
+  	<%= comment.body %>
+  </p>
+
+  <% if user_signed_in? && current_user.id == comment.user_id  %>
+  <p class="linkc">
+    <%= link_to 'Удалить', [comment.post, comment],
+                 :confirm => 'Are you sure?',
+                 :method => :delete %>
+  </p>
+  <% end %>
+</div>

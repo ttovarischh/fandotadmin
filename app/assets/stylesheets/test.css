@@ -1,0 +1,26 @@
+.u a{
+  color: #D2FB51;
+}
+.u a:hover {
+  color: #D2FB51;
+}
+.second a{
+  color: white;
+}
+.second a:hover {
+  color: #333;
+}
+table a:hover {
+  color: white;
+}
+tr:hover td {
+  opacity: 0.5;
+}
+
+
+.all_container {
+  margin-top: 82.19px;
+}
+/* .all_container {
+  margin-top: 17.6vh;
+} */

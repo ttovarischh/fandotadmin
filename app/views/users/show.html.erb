@@ -1,0 +1,56 @@
+<div class="all_container">
+  <div class="left_menu">
+			<p class="second"><%= link_to "таймлайны", "../posts" %></p>
+			<p><%= link_to "пользователи", users_path %></p>
+			<p><%= link_to "категории", categories_path %></p>
+			<p><%= link_to 'новый таймлайн', new_post_path %></p>
+	</div>
+
+  <div class="pi">
+    <div class="pinfo">
+      <div class="imgp">
+        <%= image_tag(@user.avatar_thumbnail,class: 'fit-image') %>
+      </div>
+      <div class="ptinfo">
+        <div class="">
+          <h1><%= @user.username %></h1>
+          <p><%= @user.email %></p>
+          <p><%= @user.isadmin == true ? "админ" : "юзер" %></p>
+        </div>
+        <div class="buttons">
+          <% if user_signed_in? && @user.id == current_user.id %>
+              <%= link_to 'Edit Profile', edit_user_registration_path %>
+          <% elsif user_signed_in? && @user.id != current_user.id && current_user.isadmin %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="statics">
+      <p>Подписчики: <%= @user.followers.count %></p>
+      <p>Подписки: <%= link_to @user.followees.count, following_path %></p>
+
+
+      <div class="fav">
+        В избранном: <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? '' : 'Posts'%>
+        <% @posts.each do |post| %>
+          <br><%= link_to post.name, post %>
+        <% end %>
+      </div>
+    </div>
+    <div class="other">
+      <div class="">
+        <% if user_signed_in? && current_user.isadmin == true && @user.id != current_user.id %>
+              <%= link_to 'Переназначить', edit_user_path(@user) %>
+        <% end%>
+      </div>
+      <% if user_signed_in? && current_user.followees.include?(@user) && @user.id != current_user.id %>
+          <h5><%= button_to "Отписаться", unfollow_user_path, method: "POST", class: "lil" %></h5>
+      <% elsif user_signed_in? && @user.id != current_user.id %>
+          <h5><%= button_to "Подписаться", follow_user_path, method: "POST", class: "lil"  %></h5>
+      <% end%>
+
+
+    </div>
+  </div>
+</div>

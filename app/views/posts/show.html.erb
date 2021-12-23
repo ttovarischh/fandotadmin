@@ -1,0 +1,108 @@
+<p id="notice"><%= notice %></p>
+
+<p class="second"><%= link_to "← назад", "../posts" %></p>
+
+<div class="cover">
+  <%= image_tag(@post.image.url, alt: 'Image', class: 'cov') if @post.image? %>
+</div>
+
+<div class="postinfo">
+  <div class="tgth">
+    <div class="updown">
+      <% if user_signed_in? %>
+              <% if current_user.voted_up_on? @post %>
+          <span>
+             <%= link_to like_post_path(@post), class: "like", method: :put do %>
+               <div class="arrow up sleep"></div>
+             <% end %>
+           </span>
+          <% else %>
+          <span>
+             <%= link_to like_post_path(@post), class: "like", method: :put do %>
+             <div class="arrow up"></div>
+             <% end %>
+           </span>
+          <% end %>
+        <span><%= @post.cached_votes_score %></span>
+        <% if current_user.voted_down_on? @post %>
+      <span>
+             <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+             <div class="arrow down sleep"></div>
+             <% end %>
+           </span>
+        <% else %>
+        <span>
+             <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+             <div class="arrow down"></div>
+             <% end %>
+           </span>
+         <% end %>
+      <% end %>
+    </div>
+
+    <div class="posttext">
+      <div class="a_c">
+        <p>
+          @<%= User.find(@post.user_id).username %>
+        </p>
+        <p>
+          <%= @post.category.name %>
+        </p>
+      </div>
+      <p class="postname2" id="green">
+        <%= @post.name %>
+      </p>
+      <div class="buttons">
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= link_to 'Редактировать', edit_post_path(@post) %>
+        <% end %>
+        <% if user_signed_in? && current_user.id == @post.user_id or current_user.isadmin %>
+          <%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% if user_signed_in? %>
+              <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+            <% if pre_favorite %>
+                <%= button_to 'Удалить из избранного', post_favorite_path(@post, pre_favorite), method: :delete, class: "lol" %>
+            <% else %>
+                <%= button_to 'Добавить в избранное', post_favorites_path(@post), method: :post, class: "lol" %>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <p class="about">
+    <%= @post.content %>
+  </p>
+</div>
+
+<div class="timeline_and_add">
+
+  <div class="timeline">
+      <div class="line_container">
+        <div class="line"></div>
+      </div>
+      <div class="allevents">
+        <%= render @post.events.select(&:persisted?) %>
+      </div>
+  </div>
+
+  <div class="add">
+    <% if user_signed_in? && current_user.id == @post.user_id  %>
+      <h2>Новое событие:</h2>
+      <%= render "events/form" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="comment_section">
+  <h2>Комментарий:</h2>
+  <% if user_signed_in? %>
+  <%= render "comments/form" %>
+  <% else %>
+  <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+  <% end %>
+
+  <div class="allin">
+      <%= render @post.comments.select(&:persisted?) %>
+  </div>
+</div>

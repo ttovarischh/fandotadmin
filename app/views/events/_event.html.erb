@@ -1,0 +1,22 @@
+							 <div class="event">
+					       <div class="dot"></div>
+					       <div class="eventinfo">
+									 <p>
+										 <%= event.date %>
+									 </p>
+									 <div class="h1">
+										 <h1>
+											 <%= event.name %>
+										 </h1>
+										 <% if user_signed_in? && current_user.id == @post.user_id  %>
+										 <p><%= link_to '✕', [event.post, event],
+																	:confirm => 'Are you sure?',
+																	:method => :delete %></p>
+							<% end %>
+
+									 </div>
+									 <p>
+										 <%= event.body %>
+									 </p>
+					       </div>
+					     </div>

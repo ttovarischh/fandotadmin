@@ -1,0 +1,17 @@
+<%= form_for([@post, @post.events.build]) do |f| %>
+	<div class="field eve">
+		<%= f.label :название %>
+		<%= f.text_field :name, class: 'lel' %>
+	</div>
+	<div class="field eve">
+		<%= f.label :описание %>
+		<%= f.text_area :body, class: 'lel' %>
+	</div>
+  <div class="field eve">
+    <%= f.label :дата %>
+    <%= f.text_field :date, class: 'lel' %>
+  </div>
+	<div class="actions">
+		<%= f.submit 'сохранить', :class => 'lol ev' %>
+	</div>
+<% end %>
