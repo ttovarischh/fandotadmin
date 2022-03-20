@@ -6,6 +6,6 @@
       <p class="ceyy"><%= link_to 'новый таймлайн', new_post_path %></p>
   </div>
   <div class="newpost">
-    <%= render 'form', post: @post %>
+    <%= render 'form', tags: @tags, post: @post %>
   </div>
 </div>

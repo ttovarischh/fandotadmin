@@ -18,25 +18,18 @@
     <p class="alert"><%= alert %></p>
   <% end %>
 
+  <% current_user_id = -1 %>
+    <%if current_user%>
+      <%current_user_id= current_user.id%>
+    <% end %>
+
   <body>
-    <div class="top_menu">
-        <%= link_to "../posts" do %>
-          <div class="logo"></div>
-        <% end %>
-      <div class="acc">
-        <% if user_signed_in? %>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
-        <% if user_signed_in? %>
-        <div class="avatar">
-          <%= link_to image_tag(current_user.avatar_thumbnail, class: 'av'), current_user %>
-        </div>
-        <% end %>
-      </div>
-    </div>
+    <%= react_component 'O_header', {current_user: current_user, current_user_id: current_user_id}%>
+
 
     <%= yield %>
+
+    <%= react_component 'O_footer'%>
+
   </body>
 </html>

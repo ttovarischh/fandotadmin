@@ -19,11 +19,26 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 60px;
-  margin-bottom: 40px;
+  height: 100px;
+  margin-bottom: 16px;
   background: black;
-  padding-top: 7px;
 }
+  .top_menu p {
+    font-family: Rubik;
+    font-size: 18px;
+    line-height: 0px;
+  }
+  .underline {
+    width: 100%;
+    height: 1px;
+    background: white;
+  }
+  .link {
+    margin-right: 30px;
+  }
+  .a {
+    display: flex;
+  }
 .uhodi {
   color: green;
 }
@@ -55,15 +70,7 @@
   margin-right: 5%;
   width: auto !important;
 }
-.logo {
-  width: 45px;
-  height: 45px;
-  background: url("logo.svg");
-  background-size: contain;
-}
-.logo:hover {
-  opacity: 0.5;
-}
+
 .acc {
   display: flex;
   align-items: center;
@@ -83,7 +90,6 @@ body {
   margin: 0;
   padding-left: 9.44vw;
   padding-right: 9.44vw;
-  padding-bottom: 8vh;
 }
 .allin {
   margin-top: 5%;
@@ -121,20 +127,126 @@ body {
   line-height: 108%;
   margin-bottom: 10px;
 }
-.all_post {
-  width: 53.54vw;
+/* .all_post {
+  width: 100%;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
+} */
+.all_post {
+  width: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  grid-row-gap: 24px;
 }
+.all_post:first-child {
+  grid-column: span 2;
+}
+.test {
+  background: red;
+}
+/* .all_post a:first-of-type {
+  width: 200px;
+} */
 .post_container {
+  position: relative;
+  overflow: hidden;
   transition: all 0.2s ease;
   position: relative;
   width: 25.97vw;
-  background: white;
-  margin-bottom: 20px;
+  height: 33.33vw;
+  background: #1E1E1E;
   color: black;
+  border-radius: 1.2%;
+}
+.star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("favorite.svg");
+  background-size: contain;
+  height: 24px;
+  width: 24px;
+}
+.pic {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 45%;
+  background: #D2FB51;
+}
+.fit-image {
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+}
+.info {
+  height: auto;
+  position: relative;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 23px;
+  min-height: 115px;
+}
+.postname {
+  margin: 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  color: White;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 4px;
+}
+.username {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #BBBBBB;
+  margin: 0;
+  margin-bottom: 27px;
+}
+.content {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #8D8D93;
+}
+.upperinfo {
+  position: relative;
+}
+.overflow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.gradient {
+  width: 374px;
+  height: 74px;
+  background: linear-gradient(360deg, #1E1E1E 0%, rgba(30, 30, 30, 0) 100%);
+}
+.downinfo {
+  width: 100%;
+  background: grey;
+  font-size: 18px;
+  height: 60px;
+  line-height: 108%;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px -33px 54px 7px rgba(30, 30, 30, 1);
+  -moz-box-shadow: 0px -33px 54px 7px rgba(30, 30, 30, 1);
+  box-shadow: 0px -33px 54px 7px rgba(30, 30, 30, 1);
 }
 .pi, .edit, .new, .ci, .newpost, .editpost{
   width: 53.54vw;
@@ -433,6 +545,48 @@ body {
   align-items: center;
   margin-top: 6.1%;
 }
+/* .vott a {
+  display: none;
+} */
+.stats {
+  align-items: flex-end;
+  background: #1E1E1E;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.cached {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: white;
+}
+.cc {
+  display: flex;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+}
+.comm-icon {
+  background: url("comm-icon.svg");
+  height: 22px;
+  width: 22px;
+  background-size: contain;
+  margin-right: 7px;
+}
+.fav {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .arrow {
   width: 13px;
   height: 10px;
@@ -488,22 +642,11 @@ body {
 #green {
   color: #D2FB51;
 }
-.info {
-  padding: 22px;
-  min-height: 115px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
 .cover {
   height: 315px;
 }
-.downinfo {
-  font-size: 18px;
-  line-height: 108%;
-  display: flex;
-  justify-content: space-between;
-}
+
 .rating {
   display: flex;
   align-items: baseline;
@@ -512,16 +655,6 @@ body {
   font-size: 24px;
   line-height: 108%;
   margin-right: 5px;
-}
-.postname {
-  margin: 0;
-  font-family: Rubik Mono One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 108%;
-  color: black;
-  width: 70%;
 }
 .postname2 {
   margin: 0;
@@ -538,20 +671,6 @@ body {
   margin-top: 0;
   display: flex;
   justify-content: space-between;
-}
-.fit-image {
-  object-fit: cover;
-  width: 100%;
-  min-height: 100%;
-  /* height: auto; */
-  /* min-height: 100%;
-  min-width: 100%; */
-}
-.pic {
-  overflow: hidden;
-  width: 25.97vw;
-  height: 19.44vw;
-  background: #D2FB51;
 }
 .uppercomment {
   display: flex;
@@ -632,9 +751,9 @@ body {
 a {
   color: white;
 }
-a:hover {
+/* a:hover {
   color: #333;
-}
+} */
 th {
   text-align: left;
 }
@@ -692,3 +811,37 @@ th {
   color: #D2FB51;
   width: 70%;
 }
+.bread {
+  color: white;
+}
+.bread a {
+  color: #828282;
+}
+.bread a:hover {
+  color: white;
+}
+
+/* ALL USERS */
+ .user_table {
+  color: white;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+ }
+ .tags {
+   display: flex;
+   gap: 14px;
+ }
+ .tag {
+   color: white;
+  width: fit-content;
+  padding: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  border: 1px white solid;
+ }
+/* ALL USERS END */

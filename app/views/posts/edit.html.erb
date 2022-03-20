@@ -6,7 +6,7 @@
       <p><%= link_to 'новый таймлайн', new_post_path %></p>
   </div>
   <div class="editpost">
-    <%= render 'form', post: @post %>
+    <%= render 'form', tags: @tags, post: @post %>
     <%= link_to 'Show', @post %> |
     <%= link_to 'Back', posts_path %>
   </div>

@@ -56,9 +56,11 @@
         <% if user_signed_in? && current_user.id == @post.user_id %>
           <%= link_to 'Редактировать', edit_post_path(@post) %>
         <% end %>
+
         <% if user_signed_in? && current_user.id == @post.user_id or user_signed_in? && current_user.isadmin %>
           <%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
+
         <% if user_signed_in? %>
               <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
             <% if pre_favorite %>
@@ -73,6 +75,10 @@
   <p class="about">
     <%= @post.content %>
   </p>
+</div>
+
+<div class="tags">
+  <%= render @post.tags %>
 </div>
 
 <div class="timeline_and_add">

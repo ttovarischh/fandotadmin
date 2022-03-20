@@ -1,0 +1,50 @@
+.footer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 125px;
+  margin-top: 62px;
+  align-items: center;
+  p {
+    font-family: Rubik;
+    font-size: 18px;
+    line-height: 0px;
+    margin-bottom: 14px;
+  }
+  .underline {
+    width: 100%;
+    height: 1px;
+    background: white;
+  }
+}
+.footer_logo_wrap {
+  width: 96px;
+}
+.footer_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.social {
+  display: flex;
+  gap: 17px;
+
+  .fb {
+    width:  11px;
+    height: 23px;
+    background: blue;
+    background: url("fb.svg");
+  }
+  .twitter {
+    width:  27px;
+    height: 23px;
+    background: blue;
+    background: url("twitter.svg");
+  }
+  .instagram {
+    width:  24px;
+    height: 24px;
+    background: blue;
+    background: url("instagram.svg");
+  }
+}
