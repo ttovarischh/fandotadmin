@@ -2,39 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<!-- <h1>Posts</h1> -->
+<%= react_component 'O_AllPosts', { posts: @posts }  %>
 
-<div class="all_container">
-
-	<div class="all_post">
-		<% @posts.each do |post| %>
-			<%= link_to post do %>
-			<div class="post_container">
-				<div class="pic">
-					<%= image_tag(post.image.url, class: 'fit-image', alt: 'Image') if post.image? %>
-				</div>
-				<div class="info">
-						<p class="postname"><%= post.name %></p>
-						<p class="username">@<%= User.find(post.user_id).username %></p>
-						<p class="content"><%= post.content %></p>
-				</div>
-				<div class="overflow">
-					<div class="gradient"></div>
-					<div class="downinfo">
-
-						<div class="stats">
-							<div class="cached">
-									<span><%= post.cached_votes_score %></span>
-							</div>
-							<div class="cc">
-								<div class="comm-icon"></div>
-								<span><%= post.comments.count %></span>
-							</div>
-						</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
+<div class="pagination_wrapper">
+	<%= will_paginate @posts, previous_label: "Назад" %>
 </div>

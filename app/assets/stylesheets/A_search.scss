@@ -1,0 +1,29 @@
+.search_wrapper {
+  width: 282px;
+  color: var(--op50);
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.search_t {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline
+}
+.search_icon {
+  opacity: 0.5;
+  width: 19.33px;
+  height: 17.62px;
+  background: url("search-icon.svg");
+  transition: all 0.5s ease;
+}
+.search_wrapper:hover {
+  color: var(--magic);
+  .search_icon {
+    opacity: 1;
+  }
+  .underline {
+    background: var(--lime);
+  }
+}

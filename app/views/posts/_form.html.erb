@@ -33,15 +33,11 @@
   <%= form.select :category_id, Category.pluck(:name, :id) { :multiple => true} %>
 </div>
 
-<div class="row">
-  <div class="">
-    <%= form.label :tags %>
-  </div>
 
-  <div class="">
-    <%= form.collection_select :tag_ids, tags, :id, :title, {}, multiple: true %>
-  </div>
 
+<div class="tagggggg">
+  <%= form.label :tags %>
+  <%= form.collection_select :tag_ids, tags, :id, :title, {}, multiple: true %>
 </div>
 
 

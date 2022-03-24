@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import A_search from "./A_search.js"
+
 
 
 class O_header extends React.Component {
@@ -34,18 +36,20 @@ class O_header extends React.Component {
             <a href="/posts/new">
               <p>Новый таймлайн</p>
               <div className="underline"></div>
-
             </a>
           </div>
 
         </div>
 
         <div className="headerr_right">
-
+          <a href="/posts/new">
+            <A_search/>
+          </a>
+          
           <div className="Account_action">
 
+
             <div className="avatar_wrap">
-              <A_avatar currentUser={this.props.current_user} className="header--right-profile"/>
             </div>
 
             <div className="Sign">
