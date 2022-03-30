@@ -4,11 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render component: 'Users', props: { users: @users }
-    respond_to do |format|
-      format.html  # index.html.erb
-      format.json  { render :json => @users }
-    end
   end
 
   def show
@@ -64,7 +59,7 @@ end
 def update
   respond_to do |format|
     if @user.update(user_params)
-      format.html { redirect_to @user, notice: 'Пользователь was successfully переназначен.' }
+      format.html { redirect_to @user, notice: 'Пользователь был переназначен.' }
       format.json { render :show, status: :ok, location: @user }
     else
       format.html { render :edit }

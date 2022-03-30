@@ -1,27 +1,34 @@
 import React from "react"
 import PropTypes from "prop-types"
 import A_search from "./A_search.js"
+import A_avatar from "./A_avatar.js"
+
 
 
 
 class O_header extends React.Component {
   render () {
 
-        let first_link = '';
-        let second_link = '';
+        // WARNING:
 
-        if (this.props.current_user_id == -1) {
-          first_link = <a href="/users/sign_up">Зарегистрироваться</a>, second_link = <a href="/users/sign_in">Войти</a>;
-        } else {
-          first_link = <a rel="nofollow" data-method="delete" href="/users/sign_out">Выйти</a>, second_link = <a href={`/users/${this.props.current_user_id}`}>Аккаунт</a>
-        ;}
+        const renderAuthButton = () => {
+            if (this.props.current_user_id == -1) {
+              return <a href="/users/sign_in"><div className="comein"></div></a>;
+            } else {
+              return <A_avatar
+                  size="small"
+                  link = {this.props.current_user.id}
+                  avatar = {this.props.current_user.avatar.url}>
+                </A_avatar>
+            }
+          }
 
     return (
       <div className="headerr">
         <div className="headerr_wrap">
           <div className="headerr_left">
 
-          <a href="/posts">
+          <a href="/">
             <div className="logo"></div>
           </a>
 
@@ -45,22 +52,14 @@ class O_header extends React.Component {
           <a href="/posts/new">
             <A_search/>
           </a>
-          
+
           <div className="Account_action">
 
+            {renderAuthButton()}
 
-            <div className="avatar_wrap">
-            </div>
+          </div>
 
-            <div className="Sign">
-              {first_link}
-            </div>
 
-            <div className="Sign">
-              {second_link}
-            </div>
-
-            </div>
           </div>
         </div>
       </div>

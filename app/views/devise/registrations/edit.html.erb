@@ -5,20 +5,18 @@
 			<p><%= link_to "категории", categories_path %></p>
 			<p><%= link_to 'новый таймлайн', new_post_path %></p>
 	</div>
+
   <div class="edit">
     <h2 class="none">Edit <%= resource_name.to_s.humanize %></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
     <div class="upperrow">
 
-        <div class="field ok">
-          <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
-        </div>
-
-        <div class="">
-          <div class="field">
-            <%= f.file_field :avatar %>
-          </div>
+      <div>
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+      </div>
 
           <div class="field">
             <%= f.label :email %><br />

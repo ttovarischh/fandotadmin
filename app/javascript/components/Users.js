@@ -19,7 +19,9 @@ class Users extends React.Component {
         {this.props.users.map(user => (
           <tr key={user.id}>
             <td>
-              <A_avatar user = {this.props.user}/>
+            <A_avatar
+              avatar = {user.avatar.url}>
+            </A_avatar>
             </td>
             <td>id:{user.id}</td>
             <td>{user.username}</td>

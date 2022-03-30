@@ -9,8 +9,18 @@
   <div class="pi">
     <div class="pinfo">
       <div class="imgp">
-        <%= image_tag(@user.avatar_thumbnail,class: 'fit-image') %>
+        <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
       </div>
+
+      <div class="killmeh">
+  <% if user_signed_in? %>
+    <%= link_to 'Account', edit_user_registration_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
+  <% end %>
+</div>
+
+
       <div class="ptinfo">
         <div class="">
           <h1><%= @user.username %></h1>

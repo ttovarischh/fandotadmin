@@ -1,0 +1,31 @@
+.avatar_wrap {
+  background: var(--lime);
+  border-radius: 100%;
+  width: min-content;
+  img {
+    display: block;
+    margin: 0;
+  }
+}
+.micro {
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+}
+.small {
+  height: 34px;
+  width: 34px;
+  border-radius: 100%;
+  a {
+    height: 34px;
+    width: 34px;
+  }
+}
+
+.comein {
+  height: 34px;
+  width: 34px;
+  background: url("comein.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

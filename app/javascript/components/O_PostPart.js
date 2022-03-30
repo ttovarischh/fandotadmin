@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import A_favorite_button from "./A_favorite_button"
 
 
+
 class O_PostPart extends React.Component {
   render () {
     return (
@@ -35,7 +36,7 @@ class O_PostPart extends React.Component {
               </div>
               <div className="cc">
                 <div className="comm-icon"></div>
-                <span>{this.props.post.comments_count}</span>
+                <span>20</span>
               </div>
             </div>
           </div>

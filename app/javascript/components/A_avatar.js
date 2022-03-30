@@ -1,15 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class A_avatar extends React.Component {
-  render () {
+const A_avatar = ({
+  avatar,
+  link,
+  size
+}) => {
     return (
-      <img className="A_avatar"
-        src={this.props.user.avatar}
-        alt = {this.props.user.name}
-      />
+      <a href={`/users/${link}`}>
+        <div className="avatar_wrap">
+          <img className={size} src={`${avatar}`}/>
+        </div>
+      </a>
     );
   }
-}
 
 export default A_avatar

@@ -6,13 +6,11 @@ class O_AllPosts extends React.Component {
   render () {
     return (
       <div>
-        <h1>All Posts</h1>
         <div className="firstblock">
         {this.props.posts.map(post => (
-           <O_PostPart post={post}/>
+           <O_PostPart post={post} key={post.id}/>
         ))}
         </div>
-
       </div>
     );
   }

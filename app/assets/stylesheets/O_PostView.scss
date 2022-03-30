@@ -1,0 +1,40 @@
+.title--white {
+  font-family: 'Gymkhana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 108%;
+  text-transform: uppercase;
+  color: var(--magic);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.username--post {
+  font-family: 'Rubik';
+  font-weight: normal;
+  color: red;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--magic);
+}
+
+.content--show {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 108%;
+  width: 765px;
+  color: #B3B3B3;
+  margin-top: 5px;
+}
+
+.author {
+  margin-top: 31px;
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  gap: 8px;
+}

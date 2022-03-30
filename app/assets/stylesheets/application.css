@@ -235,14 +235,14 @@ body {
   margin: 0;
   margin-bottom: 27px;
 }
-.content {
+/* .content {
   font-family: Rubik;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #8D8D93;
-}
+} */
 .upperinfo {
   position: relative;
 }
@@ -665,8 +665,18 @@ body {
 }
 
 .cover {
-  height: 315px;
+  margin-left: -9.44vw;
+  margin-right: -9.44vw;
+  height: 321px;
 }
+.cover img  {
+  mask-image: url("mask.svg");
+  -webkit-mask-image: url("mask.svg");
+}
+svg {
+  background: green;
+}
+
 
 .rating {
   display: flex;
