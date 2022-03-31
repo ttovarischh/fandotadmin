@@ -11,6 +11,26 @@
   	<%= comment.body %>
   </p>
 
+  <h2>Add a answer:</h2>
+<%= form_for([comment, comment.answers.build]) do |f| %>
+	<div class="field">
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+<h2>Comments</h2>
+<% comment.answers.each do |answer| %>
+	<p>
+		<b>Comment:</b>
+		<%= answer.body %>
+	</p>
+<% end %>
+
+
   <% if user_signed_in? && current_user.id == comment.user_id  %>
   <p class="linkc">
     <%= link_to 'Удалить', [comment.post, comment],

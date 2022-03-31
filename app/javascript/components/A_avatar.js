@@ -11,7 +11,7 @@ const A_avatar = ({
         <div className="avatar_wrap">
           <img className={size} src={`${avatar}`}/>
         </div>
-      </a>
+      </a> 
     );
   }
 

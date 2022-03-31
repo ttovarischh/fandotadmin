@@ -18,7 +18,7 @@
 	</p>
 <% end %>
 
-<%= react_component 'O_AllPosts', { posts: @posts }  %>
+<%= react_component 'O_AllPosts', { posts: @posts, user: @user }  %>
 
 <div class="pagination_wrapper">
 	<%= will_paginate @posts, previous_label: "Назад" %>

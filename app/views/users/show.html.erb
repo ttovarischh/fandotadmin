@@ -1,24 +1,35 @@
 <div class="all_container">
-  <div class="left_menu">
-			<p class="second"><%= link_to "таймлайны", "../posts" %></p>
-			<p><%= link_to "пользователи", users_path %></p>
-			<p><%= link_to "категории", categories_path %></p>
-			<p><%= link_to 'новый таймлайн', new_post_path %></p>
-	</div>
+
 
   <div class="pi">
     <div class="pinfo">
-      <div class="imgp">
-        <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
-      </div>
 
       <div class="killmeh">
-  <% if user_signed_in? %>
-    <%= link_to 'Account', edit_user_registration_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
-  <% end %>
-</div>
+        <% if user_signed_in? %>
+          <%= link_to 'Account', edit_user_registration_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+      </div>
+
+
+
+
+      <%= react_component 'A_PostAuthor', {user: @user}%>
+
+      <% if user_signed_in? && current_user.isadmin == true %>
+            <p><%= link_to "пользователи", users_path %></p>
+            <p><%= link_to "категории", categories_path %></p>
+      <% end%>
+
+      <div class="">
+        <%= react_component 'M_UserPosts', { posts: @posts, user: @user }  %>
+      </div>
+
+
+
+
+
 
 
       <div class="ptinfo">
@@ -39,6 +50,14 @@
     <div class="statics">
       <p>Подписчики: <%= @user.followers.count %></p>
       <p>Подписки: <%= link_to @user.followees.count, following_path %></p>
+
+      <div class="self">
+        Твои посты: <%= @user.posts.count %> <%= (@user.posts.count) == 1 ? '' : 'Posts'%>
+        <% @posts.each do |post| %>
+          <br><%= link_to post.name, post %>
+          <%= image_tag(post.image.url, alt: 'Image', class: 'cov') if post.image? %>
+        <% end %>
+      </div>
 
 
       <div class="fav">
