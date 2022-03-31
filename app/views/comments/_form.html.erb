@@ -1,8 +1,8 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
 	<div class="field">
-		<%= f.text_area :body, class: 'lal' %>
+		<%= f.text_area :body, placeholder: "Хочешь что-то сказать?", class: 'comment_input' %>
 	</div>
-		<div class="actions">
-		<%= f.submit 'отправить', :class => 'lol' %>
+	<div class="comment_actions">
+		<%= f.submit '', :class => 'send_comment' %>
 	</div>
 <% end %>
