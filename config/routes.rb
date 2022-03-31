@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'policy/index'
+  get 'about/index'
   get 'home/index'
   resources :follows
   resources :categories
