@@ -62,7 +62,7 @@ h1 {
   margin-bottom: 50px;
 }
 .list {
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

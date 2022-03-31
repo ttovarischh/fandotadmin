@@ -1,13 +1,1 @@
-<div class="all_container">
-  <div class="left_menu">
-      <p class="second"><%= link_to "таймлайны", "../posts" %></p>
-      <p><%= link_to "пользователи", users_path %></p>
-      <p class="ceyy"><%= link_to "категории", categories_path %></p>
-      <p><%= link_to 'новый таймлайн', new_post_path %></p>
-  </div>
-  <div class="editpost">
-    <%= render 'form', tags: @tags, post: @post %>
-    <%= link_to 'Show', @post %> |
-    <%= link_to 'Back', posts_path %>
-  </div>
-</div>
+<%= render 'form', tags: @tags, post: @post %>

@@ -1,3 +1,39 @@
-// Place all the styles related to the policy controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+h1{
+  font-family: 'Gymkhana';
+  font-size: 36px;
+  line-height: 43px;
+  text-transform: none;
+  text-align: left;
+  margin: 140px 0;
+}
+.holder{
+  width: 60%;
+  position: relative;
+  margin-bottom: 134px;
+}
+.holder:first-of-type{
+  width: 100%;
+}
+h2{
+  font-family: 'Gymkhana';
+  font-size: 36px;
+  line-height: 43px;
+}
+p{
+  font-size: 18px;
+  line-height: 24px;
+}
+ol {
+  list-style: none;
+  counter-reset: flexx;
+}
+ol li {
+  counter-increment: flexx;
+  margin-bottom: 22px;
+}
+ol li::before {
+  content: counter(flexx) "/ ";
+  color: var(--lime);
+  position: absolute;
+  left: 0;
+}

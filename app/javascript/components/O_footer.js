@@ -14,13 +14,13 @@ class O_footer extends React.Component {
 
         <div className="links">
           <div>
-            <a href="/posts">
+            <a href="/about/index">
               <p>О сервисе</p>
               <div className="underline"></div>
             </a>
           </div>
           <div>
-            <a href="/posts">
+            <a href="/policy/index">
               <p>Политика конфиденциальности</p>
               <div className="underline"></div>
             </a>

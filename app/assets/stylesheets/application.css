@@ -496,7 +496,7 @@ body {
   margin-bottom: 8%;
 }
 .field {
-  width: 90%;
+  /* width: 90%; */
   font-family: Rubik;
   font-style: normal;
   font-weight: normal;

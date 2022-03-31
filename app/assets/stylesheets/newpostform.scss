@@ -1,0 +1,145 @@
+input, textarea{
+  background: #1E1E1E;
+  border: none;
+  font-family: 'Rubik';
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--magic);
+}
+#error_explanation{
+  width: 100%;
+  border: 1px solid #FB5151;
+  background-color: #030303;
+}
+.field_with_errors {
+  padding: 0;
+  display: block;
+  border: 1px solid #FB5151;
+}
+.form-top{
+  margin-top: 66px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-column-gap: 24px;
+  grid-row-gap: 16px;
+  width: 100%;
+  .field_with_errors {
+    border-radius: 56px;
+  }
+  input[type=text]{
+    padding-left: 20px;
+    // padding-top: 12px;
+    border-radius: 56px;
+    min-height: 52px;
+    width: calc(100% - 22px);
+  }
+  textarea{
+    width: calc(100% - 40px);
+    padding: 20px;
+    border-radius: 30px;
+    min-height: 146px;
+    resize: none;
+  }
+  h1{
+    font-family: 'Rubik';
+    font-size: 18px;
+    line-height: 24px;
+    color: #BBB;
+    text-transform: lowercase;
+    margin: 0 0 8px 0;
+  }
+}
+::placeholder {
+  color: #555;
+}
+:focus{
+  border: none;
+  outline: 1px solid var(--lime);
+  color: var(--magic);
+}
+.image-select{
+  margin-top: 48px;
+  border-radius: 5px;
+  // background: powderblue;
+  width: 100%;
+  input{
+    background: var(--lime);
+    #file-upload-button{
+      background: none;
+    }
+  }
+}
+select {
+  appearance: none;
+  min-height: 52px;
+  background-color: #1E1E1E;
+  color: #BBB;
+  border-radius: 30px;
+  border: none;
+  padding: 0 1em 0 20px;
+  margin: 0;
+  width: calc(100% - 22px);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: inherit;
+}
+.image-select{
+  position: relative;
+  background: var(--lime);
+  width: 100%;
+  height: 316px;
+  color: #000;
+  input[type=file]{
+    width: 255px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--lime);
+  }
+  input[type=file]::-webkit-file-upload-button {
+    display: none;
+  }
+  input[type=file]::before {
+    color: #000;
+    content: 'Выбери изображение';
+    display: inline-block;
+    border: none;
+    border-bottom: 2px #000 solid;
+    padding: 6px 0;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+  }
+}
+.submit-form{
+  margin-top: 54px;
+  background: var(--lime);
+  box-shadow: 2px 2px 4px rgba(210, 251, 81, 0.25), 0px 0px 5px rgba(210, 251, 81, 0.19);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #030303;
+  transition: .8s
+}
+.submit-form:hover{
+  box-shadow: none;
+  transition: .3s;
+  background: #FFFFFF;
+}
+.backtrack{
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--magic);
+  opacity: .5;
+  margin-top: 16px;
+  transition: .8s
+}
+.backtrack:hover{
+  transition: .3s;
+  opacity: 1;
+}

@@ -1,3 +1,10 @@
+<%= stylesheet_link_tag 'A_Input', media: 'all', 'data-turbolinks-track': 'reload'%>
+<%= stylesheet_link_tag 'newpostform', media: 'all', 'data-turbolinks-track': 'reload'%>
+
+<div class="backtrack">
+  <%= link_to 'назад', :back%>
+</div>
+
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -11,37 +18,26 @@
     </div>
   <% end %>
 
-  <div>
-    <h1 class="fir">Обложка</h1>
+  <div class="image-select">
   	<%= form.file_field :image %>
   </div>
 
-
-  <div class="field">
-    <h1>Название</h1>
-    <%= form.text_field :name %>
+  <div class="form-top">
+    <div class="field title">
+      <h1>Название</h1>
+      <%= form.text_field :name, placeholder: "Человек паук: нет пути домой" %>
+    </div>
+    <div class="field">
+      <h1>Категория</h1>
+      <%= form.select :category_id, Category.pluck(:name, :id) { :multiple => true} %>
+    </div>
+    <div class="field">
+      <h1>Описание</h1>
+      <%= form.text_area :content, placeholder: "Юный Спайдермен добивается места в команде Мстителей. Перезагрузка франшизы — теперь в киновселенной Marvel" %>
+    </div>
   </div>
-
-  <div class="field">
-    <h1>Описание</h1>
-    <%= form.text_area :content %>
-  </div>
-
-
-<div class="field">
-  <h1>Категория</h1>
-  <%= form.select :category_id, Category.pluck(:name, :id) { :multiple => true} %>
-</div>
-
-
-
-<div class="tagggggg">
-  <%= form.label :tags %>
-  <%= form.collection_select :tag_ids, tags, :id, :title, {}, multiple: true %>
-</div>
-
 
   <div class="actions">
-    <%= form.submit "Сохранить", :class => 'lol ev' %>
+    <%= form.submit "сохранить", :class => 'submit-form' %>
   </div>
 <% end %>
