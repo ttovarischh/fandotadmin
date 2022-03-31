@@ -1,0 +1,104 @@
+.secondary-b{
+  background-color: #030303;
+  border-radius: 5px;
+  border: 2px solid var(--lime);
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--lime);
+  transition: .8s;
+}
+.secondary-b:hover{
+  box-shadow: none;
+  transition: .3s;
+  color: var(--magic);
+  border: 2px solid var(--magic);
+}
+.grid-wrap{
+  margin-top: 63px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 23px;
+  .field{
+    margin-bottom: 28px !important;
+  }
+  label,i,em{
+    font-family: 'Rubik';
+    font-size: 18px;
+    line-height: 24px;
+    color: #BBBBBB;
+    margin-bottom: 8px;
+    font-style: normal;
+    padding-left: 20px;
+  }
+  i{
+    margin-top: 8px;
+  }
+  .column1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 0;
+    .button-holder{
+      display: flex;
+      gap: 25px;
+    }
+    .pic-wrap{
+      width: 320px;
+      height: 320px;
+      border-radius: 1000px;
+      overflow: hidden;
+      position: relative;
+      background: var(--lime);
+      input[type=file]{
+        font-size: 18px;
+        width: 190px;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--lime);
+      }
+      input[type=file]::-webkit-file-upload-button {
+        display: none;
+      }
+      input[type=file]::before {
+        color: #000;
+        content: 'Выбери изображение';
+        display: inline-block;
+        border: none;
+        padding: 6px 0;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .column2, .column3{
+    input[type=password],input[type=text],input[type=email]{
+      padding-left: 20px;
+      border-radius: 56px;
+      min-height: 52px;
+      color: #fff;
+      font-family: 'Rubik';
+      font-size: 24px;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+    .field_with_errors {
+      padding: 0;
+      display: block;
+      background-color: #030303;
+      border: none;
+      input{
+        border: 1px solid #FB5151;
+      }
+    }
+  }
+}
+#error_explanation{
+  width: 100%;
+  background-color: #030303;
+}

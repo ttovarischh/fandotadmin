@@ -1,57 +1,61 @@
-<div class="all_container" id="cey">
-  <div class="left_menu">
-			<p class="second"><%= link_to "таймлайны", "../posts" %></p>
-			<p><%= link_to "пользователи", users_path %></p>
-			<p><%= link_to "категории", categories_path %></p>
-			<p><%= link_to 'новый таймлайн', new_post_path %></p>
-	</div>
-
-  <div class="edit">
+<%= stylesheet_link_tag 'editprofile', media: 'all', 'data-turbolinks-track': 'reload'%>
+  <div class="backtrack">
+    <%= link_to "назад", :back %>
+  </div>
+  <div>
     <h2 class="none">Edit <%= resource_name.to_s.humanize %></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
 
-    <div class="upperrow">
-
-      <div>
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar %>
+  <div class="grid-wrap">
+    <div class="column1">
+      <div class="pic-wrap">
+        <img src="" alt="">
+        <div><%= f.file_field :avatar %></div>
       </div>
-
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'lnl' %>
-          </div>
-
-          <div class="field">
-            <%= f.label :username %><br />
-            <%= f.text_field :username, autocomplete: "username", class: 'lnl' %>
-          </div>
-        </div>
+      <div class="button-holder">
+        <%= button_to "выйти" , destroy_user_session_path, method: :delete, class: "secondary-b" %>
+        <%= button_to "удалить аккаунт", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "secondary-b" %>
+      </div>
     </div>
+    <div class="column2">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: 'lnl' %>
+      </div>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, autocomplete: "username", class: 'lnl' %>
+      </div>
+    </div>
+    <div class="column3">
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'lnl' %><br>
+        <i>оставь поле пустым, если не меняешь, <br></i>
+        <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> знаков минимум</em>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'lnl' %>
+      </div>
+      <div class="field">
+        <%= f.label :current_password %>
+        <%= f.password_field:current_password, class: 'lnl' %><br>
+        <i>чтобы мы точно знали, что это ты</i>
+      </div>
+      <%= f.submit "cохранить", :class => 'submit-form' %>
+    </div>
+  </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+
     <div class="downrow">
-      <div class="field">
-        <%= f.label :password %> <i>(оставьте поле пустым, если не хотите менять пароль)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: 'lnl' %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> знаков минимум</em>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'lnl' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(нам нужен ваш пароль, чтобы сохранить изменения)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: 'lnl' %>
-      </div>
 
       <% if signed_in? %>
       <% if current_user.isadmin? %>
@@ -60,16 +64,8 @@
       <% end %>
     <% end %>
 
-
-      <div class="actions">
-        <%= f.submit "Сохранить", :class => 'lol ev' %>
-      </div>
     <% end %>
 
 
-    <p><%= button_to "Удалить профиль", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "lil" %></p>
-
-    <%= link_to "Назад", :back %>
     </div>
-  </div>
 </div>
