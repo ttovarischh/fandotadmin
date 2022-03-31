@@ -1,41 +1,63 @@
 <div class="separate">
   <div class="uppercomment">
-    <div class="avatar">
+    <div class="">
+      <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
     </div>
-    <p class="commenter">
-      <%= User.find(comment.user_id).username %>
-    </p>
-    <span><%= time_ago_in_words(comment.created_at) %> назад</span>
+    <div class="comment_body">
+      <div class="comment_info">
+        <p class="commenter_name">
+          <%= User.find(comment.user_id).username %>
+        </p>
+        <span><%= time_ago_in_words(comment.created_at) %> назад</span>
+      </div>
+
+      <p class="comment_content">
+        <%= comment.body %>
+      </p>
+
+      <div class="c_act">
+        <% if user_signed_in? && current_user.id == comment.user_id  %>
+        <p class="linkc">
+          <%= link_to 'удалить', [comment.post, comment],
+                       :confirm => 'Are you sure?',
+                       :method => :delete %>
+        </p>
+        <% end %>
+        <% if user_signed_in?  %>
+        <p class="linkc">ответить</p>
+        <% end %>
+      </div>
+    </div>
+
   </div>
-  <p class="body">
-  	<%= comment.body %>
-  </p>
 
-  <h2>Add a answer:</h2>
-<%= form_for([comment, comment.answers.build]) do |f| %>
-	<div class="field">
-		<%= f.label :body %><br />
-		<%= f.text_area :body %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-<% end %>
+  <div class="answer">
+    <div class="comment_tie"></div>
+    <div class="answer_line">
+      <div class="">
+        <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
+      </div>
+      <div class="answer_input">
+        <%= form_for([comment, comment.answers.build]) do |f| %>
+          <div class="field">
+            <%= f.text_area :body, placeholder: "Хочешь еще что-то сказать?" %>
+          </div>
+          <div class="answer_actions">
+            <%= f.submit '', :class => 'send_comment' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<h2>Comments</h2>
-<% comment.answers.each do |answer| %>
-	<p>
-		<b>Comment:</b>
-		<%= answer.body %>
-	</p>
-<% end %>
-
-
-  <% if user_signed_in? && current_user.id == comment.user_id  %>
-  <p class="linkc">
-    <%= link_to 'Удалить', [comment.post, comment],
-                 :confirm => 'Are you sure?',
-                 :method => :delete %>
-  </p>
-  <% end %>
+  <div class="answers">
+    <% comment.answers.each do |answer| %>
+      <p>
+      </p>
+    	<p>
+    		<b>Comment:</b>
+    		<%= answer.body %>
+    	</p>
+    <% end %>
+  </div>
 </div>

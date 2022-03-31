@@ -92,10 +92,9 @@ body {
   padding-right: 9.44vw;
 }
 .allin {
-  margin-top: 5%;
+  margin-top: 40px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .comment_section h2 {
   font-family: Rubik Mono One;
@@ -104,15 +103,6 @@ body {
   font-size: 36px;
   line-height: 108%;
   color: #D2FB51;
-}
-.separate {
-  padding: 22px;
-  background: white;
-  width: 36.72vw;
-  margin-bottom: 1.7vw;
-}
-.linkc a {
-  color: black;
 }
 .left_menu {
   color: white;
@@ -495,15 +485,7 @@ body {
   color: white;
   margin-bottom: 8%;
 }
-.field {
-  width: 90%;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 108%;
-  color: white;
-}
+
 .eve {
   margin-bottom: 20px !important;
 
@@ -699,34 +681,12 @@ svg {
   display: flex;
   justify-content: space-between;
 }
-.uppercomment {
-  display: flex;
-  align-items: center;
-  color: black;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-}
-.uppercomment p {
-  color: black;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-}
 .body {
   color: black;
   font-family: Rubik;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-}
-.commenter {
-  margin-left: 13px;
-}
-.uppercomment span {
-  margin-left: 20px;
 }
 .top_menu .avatar {
   margin-left: 30px;
