@@ -74,20 +74,21 @@ margin-left: 17px;
   right: 2%;
   top: 31%;
 }
+.commenter_name {
+  font-family: 'Gymkhana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 0;
+  color: white;
+  margin-top: 9px;
+}
 
 .comment_info {
   display: flex;
   align-items: baseline;
-  .commenter_name {
-    font-family: 'Gymkhana';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    text-transform: uppercase;
-    margin: 0;
-    color: white;
-    margin-top: 9px;
-  }
+
   span {
     font-family: 'Rubik';
     font-style: normal;
@@ -203,4 +204,24 @@ width: 96%;
   height: 29px;
   right: 3.5%;
       top: 31%;
+}
+.answer_body, .answers {
+  display: flex;
+  width: 100%;
+}
+.answers {
+  margin-top: 20px;
+}
+.answer_body {
+  gap: 2%;
+}
+.answer_text {
+  font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: white;
+    margin: 0;
+    margin-top: 12px;
 }

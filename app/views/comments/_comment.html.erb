@@ -51,13 +51,27 @@
   </div>
 
   <div class="answers">
-    <% comment.answers.each do |answer| %>
-      <p>
-      </p>
-    	<p>
-    		<b>Comment:</b>
-    		<%= answer.body %>
-    	</p>
-    <% end %>
+    <div class="comment_tie"></div>
+    <div class="answer_body">
+      <div class="">
+        <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
+      </div>
+      <div class="answer_content">
+        <p class="commenter_name">
+          doppelganger
+        </p>
+        <% comment.answers.each do |answer| %>
+          <p class="answer_text">
+            <%= answer.body %>
+          </p>
+
+          <p class="linkc">
+          	<%= link_to 'удалить', [answer.comment, answer],
+          								:confirm => 'Are you sure?',
+          								:method => :delete %>
+          </p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

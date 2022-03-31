@@ -16,11 +16,31 @@
 
 
 
-#
-Post.destroy_all
+
+# Post.destroy_all
+# Comment.destroy_all
+# Answer.destroy_all
+
+answers = [
+{
+	id: 1,
+	body: "sdfsf\r\n",
+	comment_id: 1,
+  user_id: 1
+},
+{
+  id: 2,
+	body: "sdfs8r45845485\n",
+	comment_id: 1,
+  user_id: 1
+}
+]
+
+
+
 # Comment.destroy_all
 # Event.destroy_all
-User.destroy_all
+# User.destroy_all
 # Category.destroy_all
 # puts "Destroyed everything you touch"
 #
