@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'Gymkhana';
+  src: local('Gymkhana'), url(gymkhana-bk.ttf) format('truetype');
+}
+body{
+  color: #fff;
+}
+.statics{
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+  width: 36%;
+  min-width: 400px;
+  div{
+     width: max-content;
+     p:nth-of-type(1){
+        font-size: 24px;
+     }
+     p:nth-of-type(2){
+        font-size: 18px;
+     }
+   }
+}
+.pinfo{
+  display: flex;
+  flex-direction: row;
+  .ptinfo{
+    div:nth-of-type(1){
+      display: flex;
+      margin-right: 20%;
+    }
+    align-items: center;
+    display: flex;
+  }
+  .edit-pr{
+    width: 24px;
+    height: 24px;
+    background: url(./assets/edit-icon.svg);
+    a{
+      background: url(./assets/edit-icon.svg);
+      width: 24px;
+      opacity: 0;
+    }
+  }
+}
+.pi{
+  overflow: hidden;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.username--post{
+  font-family: 'Gymkhana';
+  font-size: 36px;
+  line-height: normal;
+  margin-left: 10%;
+}
