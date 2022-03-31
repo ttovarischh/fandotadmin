@@ -54,12 +54,9 @@ class O_header extends React.Component {
           </a>
 
           <div className="Account_action">
-
             {renderAuthButton()}
-
           </div>
-
-
+          
           </div>
         </div>
       </div>

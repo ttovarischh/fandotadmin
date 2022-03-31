@@ -1,29 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
+import A_avatar from "./A_avatar.js"
 
 
-const STYLES = [
-  'User--white',
-  'User--black'
-]
-
-const A_PostAuthor = ({
-  link,
-  style,
-  username,
-  avatar
-}) => {
-
-    const checkStyle = STYLES.includes(style)
-    ? style : STYLES[0]
-
+class A_PostUser extends React.Component {
+  render () {
     return (
-      <div className="userinfo">
-        <img src={`${avatar}`}/>
-        <a className={`${checkStyle}`} href={`/users/${link}`}> {username} </a>
+      <div>
+      <A_avatar
+          size="profile"
+          link = {this.props.user.id}
+          avatar = {this.props.user.avatar.url}>
+      </A_avatar>
+
+        <p className="username--post">{this.props.user.username}</p>
       </div>
     );
   }
+}
 
 
-export default A_PostAuthor
+
+export default A_PostUser

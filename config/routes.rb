@@ -9,13 +9,17 @@ Rails.application.routes.draw do
 	post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
 
   resources :posts do
-    resources :events
-  	resources :comments
+      resources :events
+  	  resources :comments
       resources :favorites
       member do
       put "like" => "posts#upvote"
       put "unlike" => "posts#downvote"
     end
+  end
+
+  resources :comments do
+  	resources :answers
   end
 
   get 'posts/index'

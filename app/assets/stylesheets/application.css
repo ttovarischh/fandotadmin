@@ -187,10 +187,6 @@ body {
 .pagination_wrapper a:hover {
   color: var(--magic);
 }
-.Favorite_button button {
-  background: green;
-  border: none;
-}
 .star {
   position: absolute;
   top: 0;
