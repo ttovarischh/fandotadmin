@@ -1,44 +1,18 @@
+<%= stylesheet_link_tag 'usershow', media: 'all', 'data-turbolinks-track': 'reload'%>
 <div class="all_container">
 
 
   <div class="pi">
     <div class="pinfo">
 
-      <div class="killmeh">
-        <% if user_signed_in? %>
-          <%= link_to 'Account', edit_user_registration_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
-      </div>
-
-
-
-
-      <%= react_component 'A_PostAuthor', {user: @user}%>
-
       <% if user_signed_in? && current_user.isadmin == true %>
             <p><%= link_to "пользователи", users_path %></p>
             <p><%= link_to "категории", categories_path %></p>
       <% end%>
 
-      <div class="">
-        <%= react_component 'M_UserPosts', { posts: @posts, user: @user }  %>
-      </div>
-
-
-
-
-
-
-
       <div class="ptinfo">
-        <div class="">
-          <h1><%= @user.username %></h1>
-          <p><%= @user.email %></p>
-          <p><%= @user.isadmin == true ? "админ" : "юзер" %></p>
-        </div>
-        <div class="buttons">
+          <%= react_component 'A_PostAuthor', {user: @user}%>
+        <div class="edit-pr">
           <% if user_signed_in? && @user.id == current_user.id %>
               <%= link_to 'Edit Profile', edit_user_registration_path %>
           <% elsif user_signed_in? && @user.id != current_user.id && current_user.isadmin %>
@@ -48,25 +22,13 @@
     </div>
 
     <div class="statics">
-      <p>Подписчики: <%= @user.followers.count %></p>
-      <p>Подписки: <%= link_to @user.followees.count, following_path %></p>
-
-      <div class="self">
-        Твои посты: <%= @user.posts.count %> <%= (@user.posts.count) == 1 ? '' : 'Posts'%>
-        <% @posts.each do |post| %>
-          <br><%= link_to post.name, post %>
-          <%= image_tag(post.image.url, alt: 'Image', class: 'cov') if post.image? %>
-        <% end %>
-      </div>
-
-
-      <div class="fav">
-        В избранном: <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? '' : 'Posts'%>
-        <% @posts.each do |post| %>
-          <br><%= link_to post.name, post %>
-        <% end %>
-      </div>
+      <div><p><%= @user.followers.count %></p> <p>подписчики</p> </div>
+      <div><p><%= link_to @user.followees.count, following_path %></p> <p>подписки</p> </div>
+      <div><p><%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? '' : ''%></p> <p>в избранном</p> </div>
     </div>
+
+
+  </div>
     <div class="other">
       <div class="">
         <% if user_signed_in? && current_user.isadmin == true && @user.id != current_user.id %>
@@ -78,7 +40,6 @@
       <% elsif user_signed_in? && @user.id != current_user.id %>
           <h5><%= button_to "Подписаться", follow_user_path, method: "POST", class: "lil"  %></h5>
       <% end%>
-
 
     </div>
   </div>

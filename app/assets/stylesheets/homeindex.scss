@@ -43,6 +43,13 @@ html {
     justify-content: space-between;
     align-items: flex-end;
   }
+  .u_c p:nth-of-type(2), .b_c p:nth-of-type(2){
+    text-align: right;
+  }
+  .u_c div:nth-of-type(2) p:nth-of-type(1){
+    margin-bottom: 13px;
+    margin-top: 0;
+  }
 }
 h1 {
   font-family: 'Gymkhana';
@@ -88,4 +95,29 @@ h1 {
 }
 .footer {
   margin-bottom: 0;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.counter {
+  font-family: 'Rubik';
+  text-align: right;
+  animation: counter 90s infinite alternate ease-in-out;
+  counter-reset: num var(--num);
+  font-size: 13px;
+}
+.counter::after {
+  content: counter(num);
+}
+@keyframes counter {
+  from {
+    --num: 1;
+  }
+  to {
+    --num: 94991999;
+  }
 }

@@ -12,11 +12,19 @@ class O_footer extends React.Component {
           </a>
         </div>
 
-        <div>
-          <a href="/posts">
-            <p>О сервисе</p>
-            <div className="underline"></div>
-          </a>
+        <div className="links">
+          <div>
+            <a href="/posts">
+              <p>О сервисе</p>
+              <div className="underline"></div>
+            </a>
+          </div>
+          <div>
+            <a href="/posts">
+              <p>Политика конфиденциальности</p>
+              <div className="underline"></div>
+            </a>
+          </div>
         </div>
 
         <div className="social">
