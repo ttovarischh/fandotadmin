@@ -1,15 +1,8 @@
-<div class="all_container">
-
-  <div class="new">
+<%= stylesheet_link_tag 'logreg', media: 'all', 'data-turbolinks-track': 'reload'%>
+<div class="actions">
+  <h2>Регистрация</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="e_n">
-
-      <div>
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar %>
-      </div>
-
 
       <div class="field">
         <%= f.label :email %><br />
@@ -19,32 +12,28 @@
       <div class="field">
         <%= f.label :username %><br />
         <%= f.text_field :username, autocomplete: "username", class: 'lnl' %>
-    </div>
-    </div>
-
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> знаков минимум)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: 'lnl' %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
+      <div class="field fixed">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'lnl' %>
+        <% if @minimum_password_length %>
+        <br><em>(<%= @minimum_password_length %> знаков минимум)</em>
+        <% end %>
+      </div>
+
+      <div class="field fixed">
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'lnl' %>
       </div>
 
-      <div class="dothis">
-        <div class="actions">
-          <%= f.submit "Sign up", class: 'lol' %>
-        </div>
+
+      <%= f.submit "зарегестрироваться", class: 'lol' %>
+
       <% end %>
-      <p>или</p>
-      <div class="more">
+
+      <div class="linked linked-op">
         <%= render "devise/shared/links" %>
       </div>
-      </div>
-  </div>
-</div>
+
+    </div>

@@ -1,0 +1,99 @@
+.field{
+  margin-bottom: 28px !important;
+}
+.fixed{
+  label{
+    margin-bottom: 8px;
+  }
+}
+.field, .memento{
+  label,em{
+    font-family: 'Rubik';
+    font-size: 18px;
+    line-height: 24px;
+    color: #BBBBBB;
+    font-style: normal;
+    padding-left: 20px;
+  }
+  input[type=password],input[type=text],input[type=email]{
+    padding-left: 20px;
+    border-radius: 56px;
+    min-height: 52px;
+    color: #fff;
+    font-family: 'Rubik';
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  .field_with_errors {
+    padding: 0;
+    display: block;
+    background-color: #030303;
+    border: none;
+    input{
+      border: 1px solid #FB5151;
+    }
+  }
+  input:-webkit-autofill {
+      -webkit-box-shadow:0 0 0 50px #1E1E1E inset; /* Change the color to your own background color */
+      -webkit-text-fill-color: #fff;
+  }
+
+  input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 50px #1E1E1E inset;/*your box-shadow*/
+      -webkit-text-fill-color: #fff;
+  }
+}
+
+input[type=submit]{
+  margin-top: 43px;
+  background: var(--lime);
+  box-shadow: 2px 2px 4px rgba(210, 251, 81, 0.25), 0px 0px 5px rgba(210, 251, 81, 0.19);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #030303;
+  transition: .8s
+}
+input[type=submit]:hover{
+  box-shadow: none;
+  transition: .3s;
+  background: #FFFFFF;
+}
+
+.memento{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  label{
+  margin: 0;
+  }
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.actions{
+  .linked{
+    width: 100%;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    a{
+      font-size: 18px;
+      opacity: .5;
+      transition: .8s;
+    }
+    a:hover{
+      opacity: 1;
+      transition: .3s;
+    }
+  }
+  .linked-op{
+    display: block;
+    width: auto;
+  }
+}
