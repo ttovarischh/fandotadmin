@@ -6,16 +6,16 @@
   .b {
     width: 47px;
     height: 47px;
-    background-color: white;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 100%;
+    background-color: white !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 100% !important;
     transition: 0.5s ease all;
     cursor: pointer;
 
     &:hover {
-      opacity: 0.5;
-      transition: 0.5s ease all;
+      opacity: 0.5 !important;
+      transition: 0.5s ease all !important;
     }
   }
   .edit_b {
@@ -35,12 +35,12 @@
     background-size: 29px 19px;
   }
   .b_filled {
-    background-image: url("b_filled.svg");
-    background-size: 23px 23px;
+    background-image: url("b_filled.svg") !important;
+    background-size: 23px 23px !important;
   }
   .b_unfilled {
-    background-image: url("b_unfilled.svg");
-    background-size: 23px 23px;
+    background-image: url("b_unfilled.svg") !important;
+    background-size: 23px 23px !important;
   }
 #inside_post {
   gap:20px;

@@ -97,7 +97,7 @@ body {
   flex-direction: column;
 }
 .comment_section h2 {
-  font-family: Rubik Mono One;
+  font-family: Gymkhana;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
@@ -411,7 +411,9 @@ body {
   height: 90px;
   background: red;
   position: absolute;
-
+}
+#incard {
+  padding-left: 5%;
 }
 input[type="file"] {
       font-size: 18px;

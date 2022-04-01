@@ -64,12 +64,6 @@
           <p class="answer_text">
             <%= answer.body %>
           </p>
-
-          <p class="linkc">
-          	<%= link_to 'удалить', [answer.comment, answer],
-          								:confirm => 'Are you sure?',
-          								:method => :delete %>
-          </p>
         <% end %>
       </div>
     </div>

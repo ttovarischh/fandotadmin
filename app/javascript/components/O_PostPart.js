@@ -32,7 +32,7 @@ class O_PostPart extends React.Component {
         <div className="overflow">
           <div className="gradient"></div>
           <div className="downinfo">
-            <div className="stats">
+            <div className="stats" id="incard">
               <div className="cached">
                 <span>{this.props.post.cached_votes_score}</span>
               </div>

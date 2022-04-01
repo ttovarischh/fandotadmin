@@ -8,6 +8,25 @@ h1{
   line-height: 106%;
   margin: 0;
 }
+.lst {
+  margin-top: 43px;
+  background: var(--lime);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #030303;
+  transition: .8s;
+  outline: none;
+  border: none;
+  margin-left: 150px;
+}
+.tw {
+  margin-left: 444px;
+}
+.descr {
+  margin-top: 20%;
+}
 .opening{
   margin-top: 16vh;
   display: block;

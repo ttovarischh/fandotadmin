@@ -44,7 +44,27 @@
       -webkit-text-fill-color: #fff;
   }
 }
-
+.buttons input[type=submit] {
+  margin-top: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: url("b_unfilled.svg");
+}
+.comment_actions input[type=submit] {
+  margin-top: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: url("send.svg") !important;
+}
+.answer_actions input[type=submit] {
+  margin-top: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: url("send.svg") !important;
+}
+.new_comment .field {
+  margin-bottom: 0 !important;
+}
 input[type=submit]{
   margin-top: 43px;
   background: var(--lime);
@@ -68,6 +88,7 @@ input[type=submit]:hover{
   padding: 0;
   background: url("search-icon.svg");
 }
+
 
 .memento{
   width: 100%;
