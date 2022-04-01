@@ -7,19 +7,19 @@ class O_footer extends React.Component {
       <div className="footer">
       <div className="footer_wrap">
         <div className="footer_logo_wrap">
-          <a href="/posts">
+          <a href="/home/index">
             <div className="logo"></div>
           </a>
         </div>
 
         <div className="links">
-          <div>
+          <div className="last">
             <a href="/about/index">
               <p>О сервисе</p>
               <div className="underline"></div>
             </a>
           </div>
-          <div>
+          <div className="last">
             <a href="/policy/index">
               <p>Политика конфиденциальности</p>
               <div className="underline"></div>

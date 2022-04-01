@@ -5,7 +5,7 @@ class A_PostUser extends React.Component {
   render () {
     return (
       <div>
-        <p className="username--post">{this.props.username}</p>
+        <p className="username--postt">{this.props.username}</p>
       </div>
     );
   }

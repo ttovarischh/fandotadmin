@@ -5,15 +5,14 @@
 <div class="filters">
 	<div class="semi_search">
 		<%= form_tag posts_path, :method => 'get' do %>
-				<%= text_field_tag :starts_with, params[:starts_with], placeholder: 'Some text' %>
-				<%= submit_tag "Search", :name => nil %>
+				<%= text_field_tag :starts_with, params[:starts_with], placeholder: 'Поиск по таймлайнам...' %>
+				<div class="index_search">
+					<%= submit_tag "", :name => nil %>
+				</div>
 		<% end %>
 	</div>
 
 		<div class="all_categories">
-			<div class="res">
-				<%= link_to "Reset", posts_path %>
-			</div>
 			<% Category.where(display_in_navbar: true).each do |cat| %>
 				<div class="category_tag">
 					<div class="tag_star"></div>
@@ -21,12 +20,22 @@
 					<div class="tag_star"></div>
 				</div>
 			<% end %>
+			<div class="res">
+				<%= link_to "×", posts_path %>
+			</div>
 		</div>
 </div>
 
+<div class="sorting">
+	<p>Сортировка по:</p>
+	<div class="sort_rate">
+		<div class="sort_icon"></div>
+		<p>рейтингу</p>
+	</div>
+</div>
 
 
-<%= react_component 'O_AllPosts', { posts: @posts, user: @user }  %>
+<%= react_component 'O_AllPosts', {posts: @postcoms}  %>
 
 <div class="pagination_wrapper">
 	<%= will_paginate @posts, previous_label: "Назад" %>

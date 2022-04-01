@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_073426) do
+ActiveRecord::Schema.define(version: 2022_03_31_232220) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 2022_03_31_073426) do
     t.integer "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.index ["comment_id"], name: "index_answers_on_comment_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -121,6 +123,7 @@ ActiveRecord::Schema.define(version: 2022_03_31_073426) do
     t.float "cached_weighted_average", default: 0.0
     t.integer "category_id", null: false
     t.string "author"
+    t.integer "comments_count"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -165,6 +168,7 @@ ActiveRecord::Schema.define(version: 2022_03_31_073426) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "comments"
+  add_foreign_key "answers", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "posts"

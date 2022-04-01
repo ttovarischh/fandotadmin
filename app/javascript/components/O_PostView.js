@@ -30,7 +30,11 @@ class O_PostView extends React.Component {
           content = {this.props.post.content}>
         </A_PostContent>
 
-        <p>{this.props.category.name}</p>
+        <div className="category_tag">
+          <div className="tag_star"></div>
+          <a>{this.props.category.name}</a>
+          <div className="tag_star"></div>
+        </div>
 
       </div>
     );

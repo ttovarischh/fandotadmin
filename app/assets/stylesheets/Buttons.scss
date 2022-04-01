@@ -1,0 +1,75 @@
+.author_buttons {
+  display: flex;
+  gap: 17px;
+  margin-top: 148px;
+}
+  .b {
+    width: 47px;
+    height: 47px;
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    transition: 0.5s ease all;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+      transition: 0.5s ease all;
+    }
+  }
+  .edit_b {
+    background-image: url("edit_icon.svg");
+    background-size: 28px 28px;
+  }
+  .del_b {
+    background-image: url("bin.svg");
+    background-size: 20px 23px;
+  }
+  .share_b {
+    background-image: url("share-icon.svg");
+    background-size: 25px 23px;
+  }
+  .sim_b {
+    background-image: url("similar.svg");
+    background-size: 29px 19px;
+  }
+  .b_filled {
+    background-image: url("b_filled.svg");
+    background-size: 23px 23px;
+  }
+  .b_unfilled {
+    background-image: url("b_unfilled.svg");
+    background-size: 23px 23px;
+  }
+#inside_post {
+  gap:20px;
+}
+.votable {
+  margin-left: -30px;
+  margin-bottom: 10px;
+}
+  .votable span {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 76px;
+    margin: 0;
+
+  }
+  .votable .toggle {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 76px;
+    margin: 0;
+  }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 140px !important;
+}

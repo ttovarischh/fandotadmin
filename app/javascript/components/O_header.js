@@ -32,14 +32,14 @@ class O_header extends React.Component {
             <div className="logo"></div>
           </a>
 
-          <div>
+          <div className="last">
             <a href="/posts">
               <p>Все посты</p>
               <div className="underline"></div>
             </a>
           </div>
 
-          <div>
+          <div className="last">
             <a href="/posts/new">
               <p>Новый таймлайн</p>
               <div className="underline"></div>
@@ -49,14 +49,14 @@ class O_header extends React.Component {
         </div>
 
         <div className="headerr_right">
-          <a href="/posts/new">
+          <a href="/posts">
             <A_search/>
           </a>
 
           <div className="Account_action">
             {renderAuthButton()}
           </div>
-          
+
           </div>
         </div>
       </div>

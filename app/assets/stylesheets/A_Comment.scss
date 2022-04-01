@@ -28,6 +28,7 @@
   color: white;
   font-size: 18px;
   font-family: Rubik;
+  resize: none;
 }
 .comment_input::placeholder {
 color: #8D8D93;
@@ -173,6 +174,7 @@ width: 96%;
   padding: 0;
   border-radius: 56px;
   background: #141515;
+  resize: none;
 }
 .answer_input {
   position: relative;

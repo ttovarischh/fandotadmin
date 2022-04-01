@@ -11,8 +11,12 @@
   height: 24px;
   width: 24px;
   border-radius: 100%;
+  border: 3px solid yellow;
+  border-color: var(--lime);
 }
 .small {
+  border: 3px solid yellow;
+  border-color: var(--lime);
   height: 34px;
   width: 34px;
   border-radius: 100%;
@@ -25,11 +29,15 @@
   width: 69px;
   height: 69px;
   border-radius: 100%;
+  border: 3px solid yellow;
+  border-color: var(--lime);
 }
 .profile {
   width: 112px;
   height: 112px;
   border-radius: 100%;
+  border: 5px solid yellow;
+  border-color: var(--lime);
 }
 
 

@@ -413,17 +413,67 @@ body {
   margin-bottom: 10%;
   justify-content: space-between;
 }
+.event_input {
+  padding-left: 20px;
+    border-radius: 56px;
+    min-height: 50px;
+    width: calc(100% - 22px);
+    background: #1E1E1E;
+}
+.event_input:placeholder {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px !important;
+  line-height: 28px;
+  color: #555555;
+}
+.eve {
+  background: transparent;
+}
+.eve label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #BBBBBB;
+  margin-left: 6%;
+  margin-bottom: 8px;
+}
+.add {
+  width: 373px;
+  background: #272728;
+  border-radius: 5px;
+  padding: 26px;
+  padding-top: 5px;
+  padding-bottom: 0;
+  height: 518px;
+}
+.add .submit-form {
+  margin-top: 30px;
+}
+.popup_title {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+margin-bottom: 34px;
+}
 .line {
   position: relative;
-  width: 6px;
-  background: #D2FB51;
-  height: calc(100% - 14%);
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 .line_container {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 50px;
+  width: 20px;
   height: 700px;
   /* background: blue; */
 }
@@ -434,10 +484,10 @@ body {
 }
 .event {
   display: flex;
-  margin-left: -50px;
+  margin-left: -20px;
 }
 .eventinfo {
-  margin-left: 1.9vw;
+    margin-left: 0.9vw;
 }
 .h1 h1 {
   font-family: Rubik Mono One;
@@ -449,26 +499,41 @@ body {
   margin: -2px;
   margin-right: 10px;
 }
-.eventinfo .h1 {
+.event_action {
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 11px;
 }
-.eventinfo p {
-  font-family: Rubik;
+.event_name {
+  font-family: 'Gymkhana';
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 108%;
-  color: white;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--magic);
   margin: 0;
-  margin-bottom: 10px;
+  margin-right: 10px;
 }
-.dot {
-  width: 50px;
-  height: 50px;
-  background: #D2FB51;
-  border-radius: 100%;
+.event_content {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0px;
 
+}
+.razdel {
+  width: 66px;
+  height: 3px;
+  background: white;
+  margin-top: 9%;
+}
+.event_date {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--lime);
+  margin: 0;
+  margin-bottom: 4px;
 }
 .timeline {
   display: flex;

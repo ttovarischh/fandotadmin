@@ -1,17 +1,17 @@
 <%= form_for([@post, @post.events.build]) do |f| %>
 	<div class="field eve">
 		<%= f.label :название %>
-		<%= f.text_field :name, class: 'lel' %>
+		<%= f.text_field :name, placeholder: "Название события", class: 'event_input' %>
 	</div>
 	<div class="field eve">
 		<%= f.label :описание %>
-		<%= f.text_area :body, class: 'lel' %>
+		<%= f.text_area :body, placeholder: "Описание события", class: 'event_input' %>
 	</div>
   <div class="field eve">
     <%= f.label :дата %>
-    <%= f.text_field :date, class: 'lel' %>
+    <%= f.text_field :date, placeholder: "Дата события", class: 'event_input' %>
   </div>
 	<div class="actions">
-		<%= f.submit 'сохранить', :class => 'lol ev' %>
+		<%= f.submit 'сохранить', :class => 'submit-form' %>
 	</div>
 <% end %>

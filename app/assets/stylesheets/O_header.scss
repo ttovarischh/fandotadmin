@@ -4,12 +4,42 @@
   height: 100px;
   color: red;
   align-items: center;
+  a {
+    transition: all 0.5s ease;
+  }
   p {
     font-family: Rubik;
     font-size: 18px;
     line-height: 0px;
     margin-bottom: 14px;
   }
+  a:hover {
+    opacity: 0.5;
+    transition: all 0.5s ease;
+  }
+  a:active {
+    border: none;
+    outline: none;
+    opacity: 0.3;
+    transition: all 0.5s ease;
+  }
+}
+.avatar_wrap {
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.5s ease;
+  }
+}
+.last {
+  transition: all 0.5s ease;
+}
+.last:hover {
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+.last:hover .underline {
+  background: var(--lime);
 }
 .headerr_wrap {
   display: flex;

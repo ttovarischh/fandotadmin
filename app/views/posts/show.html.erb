@@ -6,9 +6,19 @@
 
 <%= react_component 'O_PostView', { post: @post, username: @post.user.username, user: @post.user, category: @post.category} %>
 
-<div class="tags">
-  <%= render @post.tags %>
+<div class="author_buttons">
+  <% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to edit_post_path(@post) do %>
+      <div class="b edit_b"></div>
+    <% end %>
+  <% end %>
+  <% if user_signed_in? && current_user.id == @post.user_id or user_signed_in? && current_user.isadmin %>
+    <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <div class="b del_b"></div>
+    <% end %>
+  <% end %>
 </div>
+
 
 <div class="timeline_and_add">
 
@@ -23,61 +33,58 @@
 
   <div class="add">
     <% if user_signed_in? && current_user.id == @post.user_id  %>
-      <h2>Новое событие:</h2>
+      <p class="popup_title">Новое событие:</p>
       <%= render "events/form" %>
     <% end %>
   </div>
 </div>
 
 <div class="actions">
-  <div class="buttons">
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to 'Редактировать', edit_post_path(@post) %>
-    <% end %>
+  <div class="votable" id="inside_post">
+    <% if user_signed_in? %>
+    <% if current_user.voted_down_on? @post %>
+  <span>
+         <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+         <p class="toggle sleep">-</p>
+         <% end %>
+       </span>
+    <% else %>
+    <span>
+         <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+         <p class="toggle">-</p>
+         <% end %>
+       </span>
+     <% end %>
 
-    <% if user_signed_in? && current_user.id == @post.user_id or user_signed_in? && current_user.isadmin %>
-      <%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <span><%= @post.cached_votes_score %></span>
+
+            <% if current_user.voted_up_on? @post %>
+        <span>
+           <%= link_to like_post_path(@post), class: "like", method: :put do %>
+             <p class="toggle sleep">+</p>
+           <% end %>
+         </span>
+        <% else %>
+        <span>
+           <%= link_to like_post_path(@post), class: "like", method: :put do %>
+           <p class="toggle">+</p>
+           <% end %>
+         </span>
+        <% end %>
     <% end %>
+  </div>
+  <div class="buttons">
+    <div class="b share_b"></div>
 
     <% if user_signed_in? %>
           <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
         <% if pre_favorite %>
-            <%= button_to 'Удалить из избранного', post_favorite_path(@post, pre_favorite), method: :delete, class: "lol" %>
+            <%= button_to '', post_favorite_path(@post, pre_favorite), method: :delete, class: "b b_filled" %>
         <% else %>
-            <%= button_to 'Добавить в избранное', post_favorites_path(@post), method: :post, class: "lol" %>
+            <%= button_to '', post_favorites_path(@post), method: :post, class: "b b_unfilled" %>
         <% end %>
     <% end %>
-  </div>
-  <div class="updown">
-    <% if user_signed_in? %>
-            <% if current_user.voted_up_on? @post %>
-        <span>
-           <%= link_to like_post_path(@post), class: "like", method: :put do %>
-             <div class="arrow up sleep"></div>
-           <% end %>
-         </span>
-        <% else %>
-        <span>
-           <%= link_to like_post_path(@post), class: "like", method: :put do %>
-           <div class="arrow up"></div>
-           <% end %>
-         </span>
-        <% end %>
-      <span><%= @post.cached_votes_score %></span>
-      <% if current_user.voted_down_on? @post %>
-    <span>
-           <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
-           <div class="arrow down sleep"></div>
-           <% end %>
-         </span>
-      <% else %>
-      <span>
-           <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
-           <div class="arrow down"></div>
-           <% end %>
-         </span>
-       <% end %>
-    <% end %>
+    <div class="b sim_b"></div>
   </div>
 </div>
 

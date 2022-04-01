@@ -12,6 +12,13 @@
   border-radius: 24px;
   padding-left: 10px;
   padding-right: 10px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.3;
+    transition: all 0.5s ease;
+
+  }
     a {
       color: var(--lime);
       margin-left: 7px;
@@ -43,14 +50,46 @@
 
 .filters {
   display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 26px;
 }
 
 #starts_with {
-  width: 396px;
-  outline: none !important;
+  width: 96%;
   border: none !important;
-  padding: 9px;
+  padding: 6px;
+  padding-left: 17px;
+  padding-right: 0;
+  border-radius: 25px;
+  font-size: 18px;
+}
+.semisearch input:focus {
+  outline: 1px solid;
+  outline-color: var(--lime) !important;
+}
+.semi_search {
+  position: relative;
+  height: 33px;
+      width: 396px;
 }
 .semi_search form {
   width: 396px;
+}
+.index_search {
+  width: 20px;
+  height: 19px;
+  position: absolute;
+  right: 16px;
+  top: 30%;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+  input {
+    padding: 0;
+    width: 20px;
+    height: 19px;
+    background: url("search-icon.svg");
+  }
 }

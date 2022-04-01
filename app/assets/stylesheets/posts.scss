@@ -1,3 +1,27 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.sorting {
+  display: flex;
+  gap: 17px;
+  margin-bottom: 42px;
+  .sort_rate {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    color: var(--lime);
+    .sort_icon {
+      background: url("sort_icon.svg");
+      width: 9px;
+      height: 9px;
+    }
+  }
+}
+.sorting p {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+margin: 0;
+}

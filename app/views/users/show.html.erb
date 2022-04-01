@@ -3,13 +3,8 @@
 
 
   <div class="pi">
+
     <div class="pinfo">
-
-      <% if user_signed_in? && current_user.isadmin == true %>
-            <p><%= link_to "пользователи", users_path %></p>
-            <p><%= link_to "категории", categories_path %></p>
-      <% end%>
-
       <div class="ptinfo">
           <%= react_component 'A_PostAuthor', {user: @user}%>
         <div class="edit-pr">
@@ -27,8 +22,8 @@
       <div><p><%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? '' : ''%></p> <p>в избранном</p> </div>
     </div>
 
-
   </div>
+
     <div class="other">
       <div class="">
         <% if user_signed_in? && current_user.isadmin == true && @user.id != current_user.id %>
@@ -43,4 +38,130 @@
 
     </div>
   </div>
-</div>
+
+  <div class="admin_panel">
+    <h1 class="h1_g">Панель администратора:</h1>
+    <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="fav_list">
+      <div class="u_f_row">
+        <div class="divide">
+          <div class="circe"></div>
+          <p class="postname" id="us"><%= link_to "Все пользователи", users_path %></p>
+        </div>
+      </div>
+      <div class="u_f_row">
+        <div class="divide">
+          <div class="zodiac"></div>
+          <p class="postname" id="us"><%= link_to "Все категории", categories_path %></p>
+        </div>
+      </div>
+    </div>
+    <% end%>
+  </div>
+
+  <div class="users_posts">
+    <h1 class="h1_g">Твои таймлайны:</h1>
+    <div class="secondblock">
+    <% @user.posts.slice(0,3).each do |post| %>
+      <%= link_to post do %>
+      <div class="post_container">
+        <div class="pic">
+          <%= image_tag(post.image.url, alt: 'Image', class: 'cov') if post.image? %>
+          <div class="pic_overlay"></div>
+        </div>
+        <div class="info">
+          <p class="username_diff"><%= post.user.username %></p>
+          <p class="postname"><%= post.name %></p>
+          <p class="username"><%= post.user.username %></p>
+          <p class="content"><%= post.content.html_safe %></p>
+          <div className="content_diff_wrapper">
+            <p class="content_diff"><%= post.content.html_safe %></p>
+          </div>
+        </div>
+        <div class="overflow">
+          <div class="gradient"></div>
+          <div class="downinfo">
+            <div class="stats">
+              <div class="cached">
+                <span><%= post.cached_votes_score %></span>
+              </div>
+              <div class="cc">
+                <div class="comm-icon"></div>
+                <span><%= post.comments.count %></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <%= react_component 'O_UserPost', {posts: @posts, user: @user}  %>
+
+  <div class="user_favorites">
+    <h1 class="h1_g">Избранное:</h1>
+    <div class="fav_list">
+      <% @posts.each do |post| %>
+        <%= link_to post do%>
+          <div class="u_f_row">
+            <div class="divide">
+              <div class="">
+                <% if user_signed_in? %>
+                      <% pre_favorite = post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+                    <% if pre_favorite %>
+                        <%= button_to '', post_favorite_path(post, pre_favorite), method: :delete, class: "filled" %>
+                    <% else %>
+                        <%= button_to '', post_favorites_path(post), method: :post, class: "unfilled" %>
+                    <% end %>
+                <% end %>
+              </div>
+              <div class="u_f_i">
+                <p class="username" id="u"><%= post.user.username %></p>
+                <p class="postname" id="us"><%= post.name %></p>
+              </div>
+            </div>
+            <div class="u_r">
+              <div class="votable">
+                <% if current_user.voted_down_on? post %>
+              <span>
+                     <%= link_to unlike_post_path(post), class: "like", method: :put do %>
+                     <p class="toggle sleep">-</p>
+                     <% end %>
+                   </span>
+                <% else %>
+                <span>
+                     <%= link_to unlike_post_path(post), class: "like", method: :put do %>
+                     <p class="toggle">-</p>
+                     <% end %>
+                   </span>
+                 <% end %>
+              <% end %>
+
+              <span><%= post.cached_votes_score %></span>
+
+                <% if user_signed_in? %>
+                        <% if current_user.voted_up_on? post %>
+                    <span>
+                       <%= link_to like_post_path(post), class: "like", method: :put do %>
+                         <p class="toggle sleep">+</p>
+                       <% end %>
+                     </span>
+                    <% else %>
+                    <span>
+                       <%= link_to like_post_path(post), class: "like", method: :put do %>
+                       <p class="toggle">+</p>
+                       <% end %>
+                     </span>
+                    <% end %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+      <% end %>
+    </div>
+  <button class="secondary-b" id="w">все избранное</button>
+  </div>

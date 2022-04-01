@@ -23,6 +23,11 @@
 }
 .footer_logo_wrap {
   width: 96px;
+  transition: 0.5s ease all;
+  &:hover {
+    opacity: 0.5;
+    transition: 0.5s ease all;
+  }
 }
 .footer_wrap {
   display: flex;
@@ -33,6 +38,13 @@
   display: flex;
   align-items: center;
   gap: 17px;
+  div {
+    transition: 0.5s ease all;
+  }
+  div:hover {
+    opacity: 0.5;
+    transition: 0.5s ease all;
+  }
 
   .fb {
     width:  20px;

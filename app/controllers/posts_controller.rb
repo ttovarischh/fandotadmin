@@ -6,10 +6,15 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     # @posts = Post.where(nil)
-    @posts = Post.paginate(page: params[:page])
+    @posts = Post.order(cached_weighted_average: :desc).paginate(page: params[:page])
+
+
 
     filtering_params(params).each do |key, value|
       @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
+    end
+    @postcoms = @posts.map do |postcom|
+      postcom.as_json(include: [:category, :user])
     end
   end
 
