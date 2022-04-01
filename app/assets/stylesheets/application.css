@@ -406,6 +406,100 @@ body {
   font-size: 18px;
   line-height: 108%;
 }
+#hell {
+  width: 90px;
+  height: 90px;
+  background: red;
+  position: absolute;
+
+}
+.add_popup {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 35%;
+  z-index: 200;
+}
+.codeviewer {
+  position: relative;
+  width: 300px;
+  height: 900px;
+  opacity: 0.5;
+}
+#cv {
+  position: absolute;
+  top: -200px;
+  left: -112px;
+  transform: scale(0.4);
+}
+.cv_line {
+  width: 6px;
+  height: 900px;
+  background: white;
+  border-radius: 25px;
+}
+#p_overlay {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.8;
+  z-index: 150;
+}
+.close_overlay {
+  width: 24px;
+  height: 24px;
+  background: url("close_overlay.svg");
+  background-size: 14px 14px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-top: -4%;
+  justify-content: space-between;
+  transition: 0.5s ease all;
+  opacity: 1;
+}
+.close_overlay:hover {
+  opacity: 0.5;
+  transition: 0.5s ease all;
+}
+.upper_popup {
+  display: flex;
+  align-items: center;
+}
+.cross_container {
+  width: 90px;
+  height: 900px;
+  left: -35px;
+  position: absolute;
+  z-index: 100;
+}
+.cross_container:hover .cross_new {
+  opacity: 1;
+  transition: 1s ease all;
+}
+.cross_new {
+  opacity: 0;
+  width: 90px;
+  height: 90px;
+  background-color: var(--lime);
+  border-radius: 100%;
+  position: absolute;
+  bottom: 5%;
+  transition: 1s ease all;
+
+}
+.cross_pic {
+  width: 90px;
+  height: 90px;
+  background: url("cross.svg");
+  background-size: 46px 46px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 .timeline_and_add {
   position: relative;
   display: flex;
@@ -459,7 +553,8 @@ body {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-margin-bottom: 34px;
+  margin-bottom: 34px;
+  width: 100%;
 }
 .line {
   position: relative;
@@ -474,13 +569,14 @@ margin-bottom: 34px;
   display: flex;
   justify-content: center;
   width: 20px;
-  height: 700px;
+  height: 900px;
   /* background: blue; */
 }
 .allevents {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 700px;
 }
 .event {
   display: flex;

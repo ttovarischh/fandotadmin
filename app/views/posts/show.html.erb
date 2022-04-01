@@ -19,24 +19,50 @@
   <% end %>
 </div>
 
+<%= javascript_pack_tag 'hello'%>
 
 <div class="timeline_and_add">
+  <div class="">
+    <div class="cross_container">
+      <div class="cross_new" id="hello">
+        <div class="cross_pic">
 
-  <div class="timeline">
-      <div class="line_container">
-        <div class="line"></div>
+        </div>
       </div>
-      <div class="allevents">
-        <%= render @post.events.select(&:persisted?) %>
-      </div>
+    </div>
+    <div class="timeline">
+        <div class="line_container">
+          <div class="line"></div>
+        </div>
+        <div class="allevents">
+          <%= render @post.events.select(&:persisted?) %>
+        </div>
+    </div>
   </div>
+  <div class="codeviewer">
+    <div class="cv_line">
 
+    </div>
+    <div class="allevents" id="cv">
+      <%= render @post.events.select(&:persisted?) %>
+    </div>
+  </div>
+</div>
+
+<div class="add_popup" id="popup">
   <div class="add">
     <% if user_signed_in? && current_user.id == @post.user_id  %>
-      <p class="popup_title">Новое событие:</p>
+      <div class="upper_popup">
+        <p class="popup_title">Новое событие:</p>
+        <div class="close_overlay" id="cls"></div>
+      </div>
       <%= render "events/form" %>
     <% end %>
   </div>
+</div>
+
+<div id="p_overlay">
+
 </div>
 
 <div class="actions">
