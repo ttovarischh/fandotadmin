@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 	post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
 
   resources :posts do
-      resources :events
+      resources :events do
+        member do
+          patch :move
+        end
+      end
+
   	  resources :comments
       resources :favorites
       member do

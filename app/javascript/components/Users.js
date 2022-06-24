@@ -1,29 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import A_avatar from './A_avatar.js'
-
-
+import React from "react"
+import PropTypes from "prop-types"
 
 class Users extends React.Component {
   render() {
-
     return (
-      <div>
-      <p className="bread">
-        <a href={`./`}>назад</a>  /  все пользователи
-      </p>
-
-      <table className="user_table">
-
+      <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Is Admin?</th>
+        </tr>
+      </thead>
       <tbody>
         {this.props.users.map(user => (
           <tr key={user.id}>
-            <td>
-            <A_avatar
-              avatar = {user.avatar.url}>
-            </A_avatar>
-            </td>
-            <td>id:{user.id}</td>
+            <td>{user.id}</td>
             <td>{user.username}</td>
             <td>{user.email}</td>
             <td>{user.isadmin.toString()}</td>
@@ -31,7 +24,7 @@ class Users extends React.Component {
             ))}
         </tbody>
       </table>
-      </div>
+
     );
   }
 }

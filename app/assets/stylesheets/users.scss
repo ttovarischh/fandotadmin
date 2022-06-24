@@ -1,6 +1,52 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.bread {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  p {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: white;
+  }
+  a {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #828282;
+  }
+}
+.fh {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.all_users {
+  width: 100%;
+  table-layout: fixed;
+  td {
+    height: 44px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+  }
+  a {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
 .h1_g {
   font-family: 'Gymkhana';
   font-style: normal;

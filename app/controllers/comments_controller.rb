@@ -12,5 +12,5 @@ redirect_to post_path(@post)
 		@comment.destroy
 		redirect_to post_path(@post)
 	end
-	
+
 end

@@ -1,6 +1,7 @@
-.category_tag {
+.category_tag, .new_tag {
   display: flex;
   align-items: center;
+  height: 31px;
   width: fit-content;
   font-family: 'Rubik';
   font-style: normal;

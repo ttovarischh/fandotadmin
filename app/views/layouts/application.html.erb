@@ -26,9 +26,16 @@
   <body>
     <%= react_component 'O_header', {current_user: current_user, current_user_id: current_user_id}%>
 
+    <div id="more">
+      <%= react_component 'A_search'%>
+    </div>
+
     <%= yield %>
 
     <%= react_component 'O_footer'%>
+
+    <%= javascript_pack_tag 'my_js' %>
+
 
   </body>
 </html>

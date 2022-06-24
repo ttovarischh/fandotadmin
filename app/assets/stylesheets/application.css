@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
- .top_menu {
+#more {
+  display: none;
+}
+.top_menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,6 +88,7 @@ a {
   text-decoration: none;
 }
 body {
+  min-height: 100vh;
   background: black;
   margin: 0;
   padding-left: 9.44vw;

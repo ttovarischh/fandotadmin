@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import A_search from "./A_search.js"
 import A_avatar from "./A_avatar.js"
+import M_Search from "./M_Search.js"
+
 
 
 
@@ -49,9 +51,8 @@ class O_header extends React.Component {
         </div>
 
         <div className="headerr_right">
-          <a href="/posts">
-            <A_search/>
-          </a>
+          <M_Search/>
+
 
           <div className="Account_action">
             {renderAuthButton()}

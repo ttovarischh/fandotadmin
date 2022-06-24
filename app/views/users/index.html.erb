@@ -1,38 +1,28 @@
 <%= stylesheet_link_tag 'test', media: 'all', 'data-turbolinks-track': 'reload'%>
 
-<div class="all_container">
-  <div class="left_menu">
-			<p class="second"><%= link_to "таймлайны", "../posts" %></p>
-			<p class="u"><%= link_to "пользователи", users_path %></p>
-			<p><%= link_to "категории", categories_path %></p>
-			<p><%= link_to 'новый таймлайн', new_post_path %></p>
-	</div>
-  <div class="accounts">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>ID</th>
-          <th>Почта</th>
-          <th>Ник</th>
-          <th>Роль</th>
-        </tr>
-      </thead>
+<div class="bread">
+  <%= link_to 'назад', :back %>
+  <p>/</p>
+  <p>все пользователи</p>
+</div>
 
-      <tbody>
+<div>
+  <table class="all_users">
+    <tbody>
         <% @users.each do |user| %>
             <tr>
               <td>
-                <div class="avall">
+                <div class="fh">
+                  <%= image_tag(user.avatar.url, alt: 'Image', class: 'med') if user.avatar? %>
+                  <%= link_to user.username, user %>
                 </div>
               </td>
-              <td><%= link_to user.id, user %></td>
+              <td>id: <%= link_to user.id, user %></td>
               <td><%= link_to user.email, user %></td>
-              <td><%= link_to user.username, user %></td>
+              <td></td>
               <td><%= (user.isadmin) == true ? "админ" : "юзер" %></td>
             </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-</div>

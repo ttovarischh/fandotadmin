@@ -1,22 +1,22 @@
-							 <div class="event">
-					       <div class="razdel"></div>
-					       <div class="eventinfo">
-									 <p class="event_date">
-										 <%= event.date %>
-									 </p>
-									 <div class="event_action">
-										 <h1 class="event_name">
-											 <%= event.name %>
-										 </h1>
-										 <% if user_signed_in? && current_user.id == @post.user_id  %>
-										 <p><%= link_to '✕', [event.post, event],
-																	:confirm => 'Are you sure?',
-																	:method => :delete %></p>
-							<% end %>
+<div data-id="<%= event.id %>" class="event">
+	<div class="razdel"></div>
+	<div class="eventinfo">
+		<p class="event_date">
+			<%= event.date %>
+		</p>
+		<div class="event_action">
+			<h1 class="event_name">
+				<%= event.name %>
+			</h1>
+			<% if user_signed_in? && current_user.id == @post.user_id  %>
+				<p><%= link_to '✕', [event.post, event],
+					:confirm => 'Are you sure?',
+					:method => :delete %></p>
+			<% end %>
 
-									 </div>
-									 <p class="event_content">
-										 <%= event.body %>
-									 </p>
-					       </div>
-					     </div>
+		</div>
+		<p class="event_content">
+			<%= event.body %>
+		</p>
+	</div>
+</div>

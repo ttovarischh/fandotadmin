@@ -34,8 +34,8 @@
         <div class="line_container">
           <div class="line"></div>
         </div>
-        <div class="allevents">
-          <%= render @post.events.select(&:persisted?) %>
+        <div class="allevents" data-controller="drag" data-drag-url="/events/:id/move">
+          <%= render @post.events.order(position: :asc).select(&:persisted?)%>
         </div>
     </div>
   </div>

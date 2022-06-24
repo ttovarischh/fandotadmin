@@ -19,3 +19,5 @@ ReactRailsUJS.useContext(componentRequireContext);
 //= require jquery
 //= require turbolinks
 //= require_tree .
+
+import "controllers"

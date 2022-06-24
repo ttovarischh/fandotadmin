@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: %i[ show edit update destroy upvote downvote]
-  before_action :fetch_tags, only: %i[new edit]
 
   # GET /posts or /posts.json
   def index
@@ -104,7 +103,4 @@ class PostsController < ApplicationController
       params.require(:post).permit(:name, :title, :content, :image, :category_id, :author, tag_ids: [])
     end
 
-    def fetch_tags
-      @tags = Tag.all
-    end
 end

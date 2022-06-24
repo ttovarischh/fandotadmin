@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+
 class O_footer extends React.Component {
   render () {
     return (
@@ -26,6 +27,8 @@ class O_footer extends React.Component {
             </a>
           </div>
         </div>
+
+
 
         <div className="social">
           <div className="fb"></div>
