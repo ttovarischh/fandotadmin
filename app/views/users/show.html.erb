@@ -13,35 +13,88 @@
           <% elsif user_signed_in? && @user.id != current_user.id && current_user.isadmin %>
           <% end %>
         </div>
+        <div class="other">
+          <div class="a_tog">
+            <% if user_signed_in? && current_user.isadmin == true && @user.id != current_user.id %>
+                <div class="admin">
+                  <%= link_to '', edit_user_path(@user) %>
+                </div>
+                <div class="akk">
+                  <%= link_to "", user_path, data: { confirm: "Are you sure?" }, method: :delete %>
+                </div>
+            <% end%>
+          </div>
+          <div class="">
+            <% if user_signed_in? && current_user.followees.include?(@user) && @user.id != current_user.id %>
+                <h5><%= button_to "", unfollow_user_path, method: "POST", class: "filled smaller" %></h5>
+            <% elsif user_signed_in? && @user.id != current_user.id %>
+                <h5><%= button_to "", follow_user_path, method: "POST", class: "unfilled smaller"  %></h5>
+            <% end%>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="statics">
-      <div><p><%= @user.followers.count %></p> <p>подписчики</p> </div>
+      <div><p><%=  link_to @user.followers.count %></p> <p>подписчики</p> </div>
       <div><p><%= link_to @user.followees.count, following_path %></p> <p>подписки</p> </div>
       <div><p><%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? '' : ''%></p> <p>в избранном</p> </div>
     </div>
 
   </div>
+  </div>
 
-    <div class="other">
-      <div class="">
-        <% if user_signed_in? && current_user.isadmin == true && @user.id != current_user.id %>
-              <%= link_to 'Переназначить', edit_user_path(@user) %>
-        <% end%>
+  <div class="pop" id="following">
+    <div class="pop_c">
+      <div class="ab">
+        <h4>Подписки</h4>
+        <div class="close_overlay"></div>
       </div>
-      <% if user_signed_in? && current_user.followees.include?(@user) && @user.id != current_user.id %>
-          <h5><%= button_to "Отписаться", unfollow_user_path, method: "POST", class: "lil" %></h5>
-      <% elsif user_signed_in? && @user.id != current_user.id %>
-          <h5><%= button_to "Подписаться", follow_user_path, method: "POST", class: "lil"  %></h5>
-      <% end%>
+      <%= @user.followees.each do |follow| %>
+
+        <div class="f_row">
+          <%= image_tag(follow.avatar.url, alt: 'Image', class: 'med') if follow.avatar? %>
+          <p><%= follow.username %></p>
+          <div class="">
+            <% if user_signed_in? && current_user.followees.include?(follow) %>
+                <h5><%= button_to "Отписаться", unfollow_user_path, method: "POST", class: "lol" %></h5>
+            <% elsif user_signed_in? %>
+                <h5><%= button_to "Подписаться", follow_user_path, method: "POST", class: "lol"  %></h5>
+            <% end %>
+          </div>
+          <p>ntrndf</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="pop" id="followed_by">
+    <div class="pop_c">
+      <div class="ab">
+        <h4>Подписчики</h4>
+        <div class="close_overlay"></div>
+      </div>
+      <%= @user.followers.each do |u| %>
+      <div class="f_row">
+        <%= image_tag(u.avatar.url, alt: 'Image', class: 'med') if u.avatar? %>
+        <%= u.username %>
+        <div class="">
+          <% if user_signed_in? && current_user.followees.include?(u) %>
+              <h5><%= button_to "Отписаться", unfollow_user_path, method: "POST", class: "lol" %></h5>
+          <% elsif user_signed_in? %>
+              <h5><%= button_to "Подписаться", follow_user_path, method: "POST", class: "lol"  %></h5>
+          <% end%>
+        </div>
+      </div>
+      <% end %>
 
     </div>
   </div>
 
+<% if user_signed_in? && current_user.isadmin == true && @user.id == current_user.id %>
   <div class="admin_panel">
     <h1 class="h1_g">Панель администратора:</h1>
-    <% if user_signed_in? && current_user.isadmin == true %>
     <div class="fav_list">
       <div class="u_f_row">
         <div class="divide">
@@ -56,8 +109,8 @@
         </div>
       </div>
     </div>
-    <% end%>
   </div>
+<% end%>
 
   <div class="users_posts">
     <h1 class="h1_g">Твои таймлайны:</h1>
@@ -125,7 +178,7 @@
               </div>
             </div>
             <div class="u_r">
-              <div class="votable">
+              <div class="votable" id="us_v">
                 <% if current_user.voted_down_on? post %>
               <span>
                      <%= link_to unlike_post_path(post), class: "like", method: :put do %>

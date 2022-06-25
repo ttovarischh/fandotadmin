@@ -1,25 +1,34 @@
 <%= form_with model: @user do |f| %>
-<h1 class="uhodi">A</h1>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post_type from being saved:</h2>
-
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="role">
+  <div class="upper_role">
+    <p class="uhodi">Смена роли</p>
+    <%= link_to 'x', :back %>
   </div>
-<% end %>
-<% if signed_in? %>
-  <% if current_user.isadmin? %>
-    <h3> Click to Switch On/Off Admin
-    <%= f.check_box :isadmin %></h3>
-  <% end %>
-<% end %>
 
-<div class="actions">
-  <%= f.submit "Да", :class => 'lol ev'%>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post_type from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if signed_in? %>
+    <% if current_user.isadmin? %>
+      <div class="check">
+        <h3>Переназначить роль юзера:</h3>
+        <h3><%= f.check_box :isadmin %></h3>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Сохранить", :class => 'lol ev'%>
+  </div>
 </div>
+
 <% end %>

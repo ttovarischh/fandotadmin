@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     @comment.answers << @answer
     redirect_back(fallback_location: root_path)
   end
+  
   def destroy
     @comment = Comment.find(params[:comment_id])
     @answer = @comment.answers.find(params[:id])

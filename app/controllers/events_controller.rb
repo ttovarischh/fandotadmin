@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :move]
+  before_action :set_event, only: [:show, :edit, :update, :move]
 
   def create
     @post = Post.find(params[:post_id])

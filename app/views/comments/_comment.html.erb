@@ -37,12 +37,12 @@
       <div class="">
         <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
       </div>
-      <div class="answer_input">
-        <%= form_for([comment, comment.answers.build]) do |f| %>
+      <div class="antwort_input">
+        <%= form_for([comment, comment.antworts.build]) do |f| %>
           <div class="field">
             <%= f.text_area :body, placeholder: "Хочешь еще что-то сказать?" %>
           </div>
-          <div class="answer_actions">
+          <div class="antwort_actions">
             <%= f.submit '', :class => 'send_comment' %>
           </div>
         <% end %>
@@ -58,11 +58,11 @@
       </div>
       <div class="answer_content">
         <p class="commenter_name">
-          doppelganger
         </p>
-        <% comment.answers.each do |answer| %>
+
+        <% comment.antworts.each do |antwort| %>
           <p class="answer_text">
-            <%= answer.body %>
+            <%= antwort.body %>
           </p>
         <% end %>
       </div>

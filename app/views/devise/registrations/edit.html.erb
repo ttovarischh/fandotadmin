@@ -71,7 +71,7 @@
 
 
     <p><%= button_to "Удалить профиль", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "lil" %></p>
-
+    <p><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
     <%= link_to "Назад", :back %>
     </div>
   </div>

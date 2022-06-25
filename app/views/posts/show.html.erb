@@ -1,4 +1,6 @@
+<% set_meta_tags title: @post.name, description: @post.content%>
 <p id="notice"><%= notice %></p>
+
 
 <div class="cover">
   <%= image_tag(@post.image.url, alt: 'Image', class: 'cov') if @post.image? %>
@@ -23,7 +25,7 @@
 
 <div class="timeline_and_add">
   <div class="">
-    <div class="cross_container">
+    <div class="cross_container" id="sure">
       <div class="cross_new" id="hello">
         <div class="cross_pic">
 
@@ -111,6 +113,7 @@
         <% end %>
     <% end %>
     <div class="b sim_b"></div>
+    <div class="b em_b"></div>
   </div>
 </div>
 

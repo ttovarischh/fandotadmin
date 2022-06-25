@@ -9,7 +9,7 @@
     display: flex;
     align-items: baseline;
     gap: 5px;
-    color: var(--lime);
+    color: var(--lime) !important;
     .sort_icon {
       background: url("sort_icon.svg");
       width: 9px;
@@ -19,9 +19,13 @@
 }
 .sorting p {
   font-family: 'Rubik';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 24px;
-margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  color: #818181;
+}
+.sort_rate p {
+  color: var(--lime) !important;
 }

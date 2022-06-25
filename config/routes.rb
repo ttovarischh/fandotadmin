@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       end
 
   	  resources :comments
+      resources :antworts
+
       resources :favorites
       member do
       put "like" => "posts#upvote"
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
 
   resources :comments do
   	resources :answers
+    resources :antworts
   end
 
   get 'posts/index'

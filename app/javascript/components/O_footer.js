@@ -31,7 +31,7 @@ class O_footer extends React.Component {
 
 
         <div className="social">
-          <div className="fb"></div>
+          <a href="https://vk.com/fandot"><div className="fb"></div></a>
           <div className="twitter"></div>
           <div className="instagram"></div>
         </div>

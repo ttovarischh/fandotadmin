@@ -3,6 +3,21 @@ function hello(name) {
     document.getElementById("p_overlay").style.display = "block";
 }
 
+document.addEventListener('mousemove', function(e) {
+  let body = document.querySelector('body');
+  let circle = document.getElementById('hello');
+  let top = e.offsetY;
+
+  var div = document.getElementById("sure");
+  div.mouseIsOver = false;
+  div.onmouseover = function()   {
+     this.mouseIsOver = true;
+     circle.style.top = top + 'px';
+  };
+
+
+});
+
 document.addEventListener('turbolinks:load', () => {
     const clickButton = document.getElementById("hello");
     clickButton.addEventListener('click', (event) => {

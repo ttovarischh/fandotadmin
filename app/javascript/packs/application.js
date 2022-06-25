@@ -16,8 +16,8 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
-//= require jquery
-//= require turbolinks
+//= require jquery3
+//= require jquery_ujs
 //= require_tree .
 
 import "controllers"

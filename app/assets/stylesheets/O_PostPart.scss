@@ -35,6 +35,9 @@
   justify-content: space-between;
   width: 100%;
   overflow: auto;
+  .post_container:last-of-type {
+    max-width: 373px;
+  }
   .post_container:first-of-type {
     display: flex;
     grid-column: span 2;

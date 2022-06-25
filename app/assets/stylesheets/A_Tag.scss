@@ -37,6 +37,13 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  a {
+    color: var(--lime);
+    transition: 0.5s ease all;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
 }
 .res a {
   color: var(--lime);

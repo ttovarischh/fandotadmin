@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import A_favorite_button from "./A_favorite_button"
+import A_CommentCount from "./A_CommentCount.js"
+
 
 
 
@@ -34,11 +36,11 @@ class O_PostPart extends React.Component {
           <div className="downinfo">
             <div className="stats" id="incard">
               <div className="cached">
-                <span>{this.props.post.cached_votes_score}</span>
+                <span>- {this.props.post.cached_votes_score} +</span>
               </div>
               <div className="cc">
                 <div className="comm-icon"></div>
-                <span>20</span>
+                { this.props.post.comments_count || 0 }
               </div>
             </div>
           </div>

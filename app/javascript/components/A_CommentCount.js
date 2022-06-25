@@ -3,13 +3,11 @@ import PropTypes from "prop-types"
 
 class A_CommentCount extends React.Component {
   render () {
-    var commentsArray = this.props.post.comments;
-    var result = commentsArray.length;
-        return(
-            <div>
-                <p>{ result }</p>
-            </div>
-        );
+    return(
+      <div>
+        <p>{this.props.post.comments_count}</p>
+      </div>
+    );
   }
 }
 

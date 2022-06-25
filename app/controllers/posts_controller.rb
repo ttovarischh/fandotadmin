@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
     end
     @postcoms = @posts.map do |postcom|
-      postcom.as_json(include: [:category, :user])
+      postcom.as_json(include: [:category, :user, :comments])
     end
   end
 

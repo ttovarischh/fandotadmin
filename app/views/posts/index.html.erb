@@ -4,6 +4,7 @@
 
 
 <div class="filters">
+	<input type="text" id="non_search" maxlength="10" placeholder="Поиск по категориям">
 
 
 		<div class="all_categories">
@@ -14,9 +15,7 @@
 					<div class="tag_star"></div>
 				</div>
 			<% end %>
-			<div class="res">
-				<%= link_to "×", posts_path %>
-			</div>
+			<%= link_to "x", posts_path %>
 		</div>
 </div>
 
@@ -26,6 +25,8 @@
 		<div class="sort_icon"></div>
 		<p>рейтингу</p>
 	</div>
+	<p>комментариям</p>
+	<p>дате</p>
 </div>
 
 
