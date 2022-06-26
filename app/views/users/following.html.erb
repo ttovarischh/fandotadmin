@@ -1,3 +1,14 @@
-<% @follow.each do |follow| %>
-  <br><%= link_to follow.followee_id, user_path(follow.followee_id)  %>
-<% end %>
+<div class="pop">
+  <div class="pop_c">
+    <div class="ab">
+      <h4>Подписки</h4>
+      <div class="close_overlay"></div>
+    </div>
+    <% @follow.each do |follow| %>
+      <%= image_tag(follow.followee.user.avatar.url, alt: 'Image', class: 'med') if follow.user.avatar? %>
+
+      <br><%= link_to follow.followee.username, user_path(follow.followee_id)  %>
+    <% end %>
+  </div>
+
+</div>

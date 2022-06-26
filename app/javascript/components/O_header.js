@@ -36,7 +36,7 @@ class O_header extends React.Component {
 
           <div className="last">
             <a href="/posts">
-              <p>Все посты</p>
+              <p>Все таймлайны</p>
               <div className="underline"></div>
             </a>
           </div>

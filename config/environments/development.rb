@@ -11,6 +11,10 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # config.i18n.available_locales = ['es-CO', :ru]
+
+
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

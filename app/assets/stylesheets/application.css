@@ -13,8 +13,49 @@
  *= require_tree .
  *= require_self
  */
+ .oval {
+   height: 69px;
+   width: 90%;
+   background: #141515;
+  border-radius: 56px;
+ }
+ .oval p {
+   margin-left: 25px;
+ }
+ .doit {
+   display: flex;
+   gap: 2%;
+    align-items: center;
+ }
+ .doit p {
+   font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #8D8D93;
+ }
+ .doit a {
+   text-decoration: underline;
+   color: white;
+ }
+.def {
+  background: url("avatar1.png");
+  background-size: cover;
+  width: 69px;
+  height: 69px;
+  border-radius: 100%;
+  border: 3px solid yellow;
+  border-color: var(--lime);
+}
+ body {
+   min-height: 100vh;
+ }
 .pop {
   display: none;
+}
+.pop_c > * {
+  opacity: 0.5;
 }
 .srch input:focus {
   border: none;
@@ -1341,6 +1382,12 @@ th {
   }
   .codeviewer {
     display: none;
+  }
+  .em_b {
+    display: none;
+  }
+  .mp {
+    margin-bottom: 100px !important;
   }
   .title--white {
     font-size: 46px;

@@ -67,7 +67,7 @@
 
 </div>
 
-<div class="actions">
+<div class="actions mp">
   <div class="votable" id="inside_post">
     <% if user_signed_in? %>
     <% if current_user.voted_down_on? @post %>
@@ -119,14 +119,19 @@
 
 
 <div class="comment_section">
-  <h2>Комментарий:</h2>
+  <h2>Комментарии:</h2>
   <% if user_signed_in? %>
     <div class="input_line">
       <%= link_to image_tag(current_user.avatar.url, class: 'commenter'), current_user %>
       <%= render "comments/form" %>
     </div>
   <% else %>
-  <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+  <div class="doit">
+    <div class="def"></div>
+    <div class="oval">
+      <p>Пожалуйста, <%= link_to 'зарегистрируйся', new_user_session_path %> или <%= link_to 'войди', new_user_registration_path %> в профиль, чтобы оставить комментарий</p>
+    </div>
+  </div>
   <% end %>
 
   <div class="allin">

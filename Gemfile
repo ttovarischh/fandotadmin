@@ -5,6 +5,8 @@ ruby '3.0.2'
 
 gem 'will_paginate', '~> 3.3'
 
+gem 'rails-i18n', '~> 7.0.0'
+
 gem 'ransack'
 
 gem 'jquery-rails'

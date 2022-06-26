@@ -13,8 +13,8 @@ module Fandot
     config.exceptions_app = self.routes
 
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
-    config.i18n.default_locale = :ru
     config.i18n.locale = :ru
+    # config.i18n.default_locale = :'en-GB'
 
 
     # Configuration for the application, engines, and railties goes here.
