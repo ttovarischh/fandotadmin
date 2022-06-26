@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
   get 'policy/index'
   get 'about/index'
   get 'home/index'
@@ -9,6 +11,11 @@ Rails.application.routes.draw do
   post 'users/:id/edit', to: "users#update"
   post 'users/:id/follow', to: "users#follow", as: "follow_user"
 	post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+  match "/503", to: "errors#unavailable_server_error", via: :all
+
 
   resources :posts do
       resources :events do

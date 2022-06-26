@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.pop {
+  display: none;
+}
 .srch input:focus {
   border: none;
   outline: none;
@@ -51,8 +54,8 @@
 .none {
   display: none;
 }
-.upperrow {
-  display: flex;
+.edit {
+  position: relative;
 }
 .edit > * {
   border-radius: none;
@@ -262,7 +265,7 @@ body {
   -moz-box-shadow: 0px -33px 54px 7px rgba(30, 30, 30, 1);
   box-shadow: 0px -33px 54px 7px rgba(30, 30, 30, 1);
 }
-.pi, .edit, .new, .ci, .newpost, .editpost{
+.pi, .new, .ci, .newpost, .editpost{
   width: 53.54vw;
 }
 .newpost h1, .editpost h1 {
@@ -638,11 +641,16 @@ input[type="file"]::-webkit-file-upload-button {
   height: 900px;
   /* background: blue; */
 }
+.timeline_wrapper {
+  height: 900px;
+  overflow: hidden;
+}
 .allevents {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 837px;
+  /* justify-content: space-between; */
+  height: 860px;
+  gap: 80px;
 }
 .event {
   display: flex;
@@ -1250,4 +1258,329 @@ th {
 }
 .other a: hover {
   opacity: 0.5;
+}
+.mob_header {
+  display: none;
+}
+.why {
+  width: 40px;
+  height: 40px;
+  background: url("m_l.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.m_burger {
+  background: url("menu.svg");
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+.m_menu {
+  display: none;
+}
+.new_antwort {
+  display: block;
+}
+.new_antwort textarea {
+  margin-bottom: 0;
+  height: 45px;
+  padding-top: 2.2%;
+  padding-bottom: 0.6%;
+  padding-left: 31px;
+  width: 97%;
+}
+.antwort_input {
+  width: 90%;
+  position: relative;
+  height: 75px;
+}
+.new_antwort textarea::placeholder {
+  color: #8D8D93;
+  font-size: 18px;
+  line-height: 24px;
+}
+.antwort_actions input[type=submit] {
+    margin-top: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: url("send.svg") !important;
+}
+.antwort_actions {
+  right: 2%;
+  top: 31%;
+  position: absolute;
+}
+.antwort_input {
+  color: white;
+  font-size: 18px;
+  font-family: Rubik;
+}
+.allin {
+  gap: 30px;
+}
+.m_sorting {
+  display: none;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 390px) and (max-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .pagination_wrapper {
+    margin-right: 12px;
+  }
+  .mob_header {
+    display: block;
+    height: 84px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+
+  body {
+    width: 100vw;
+  }
+  .codeviewer {
+    display: none;
+  }
+  .title--white {
+    font-size: 46px;
+    margin-bottom: 11px;
+  }
+  .author {
+    margin-bottom: 15px;
+  }
+  .author_buttons {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .event_name {
+    line-height: 36px;
+    width: 300px;
+    font-size: 26px;
+  }
+  .allevents {
+    width: 100%;
+  }
+  .content {
+    width: 100%;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .headerr {
+    display: none;
+  }
+  .cover {
+    width: 100vw;
+    margin: 0;
+    height: 262px;
+  }
+  .line_container {
+    min-width: 8px;
+  }
+  .razdel {
+    min-width: 44px;
+  }
+  .comment_section h2 {
+    color: white;
+  }
+  .m_user a {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+  .m_menu {
+    display: none;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 300;
+  }
+  .m_pages {
+    margin-top: 48px;
+  }
+  .mm_wrapper {
+    position: relative;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    margin-top: 21px;
+    margin-bottom: 21px;
+    height: 94%;
+  }
+  .useless {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    opacity: 0.5;
+  }
+  .useless p {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  .useless .why {
+    opacity: 0.5;
+  }
+  #big a {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  #big {
+    margin-bottom: 32px;
+  }
+  .m_user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .menu_ur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .close_m {
+    width: 45px;
+    height: 45px;
+    background: url("close_overlay.svg");
+    background-size: contain;
+  }
+  .comment_section {
+    /* display: none; */
+  }
+  .footer {
+    /* display: none; */
+  }
+  .footer .links {
+    display: none;
+  }
+  .cover img {
+    mask-image: url("m_mask.svg");
+    -webkit-mask-image: url("m_mask.svg");
+  }
+  .commenter {
+    width: 34px;
+    height: 34px;
+  }
+  .input_line .commenter {
+    display: none;
+  }
+  .input_line {
+    gap: 0px;
+  }
+  .new_comment {
+    width: 94%;
+  }
+  .commenter_name {
+    font-size: 18px;
+  }
+  .comment_info {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+  }
+  .comment_info span {
+    margin-left: 0;
+  }
+  .uppercomment {
+    gap: 5%;
+  }
+  .new_antwort textarea {
+    width: 85%;
+    height: 35px;
+  }
+  .new_antwort textarea::placeholder {
+    color: #1E1E1E;
+  }
+  .answer_line {
+    gap: 5%;
+  }
+  .comment_input {
+    padding-top: 16px;
+    padding-bottom: 0px;
+  }
+  .comment_actions {
+    position: absolute;
+    right: 2%;
+    top: 23%;
+}
+  .antwort_actions {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+  }
+  .sorting {
+    display: none;
+  }
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .scroll_mob {
+    width: 423px;
+    overflow: hidden;
+  }
+  .all_categories {
+    overflow: auto;
+  }
+  .all_categories::-webkit-scrollbar {
+    display: none;
+  }
+  .m_sorting {
+    display: block;
+    margin-bottom: 32px;
+  }
+  .m_sorting p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .m_sorting .sort_icon {
+    background: url("sort_icon.svg");
+    width: 9px;
+    height: 9px;
+  }
+  .m_sorting .sort_rate {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  .m_tgt {
+    display: flex;
+    gap: 20px;
+  }
+  .srch input {
+    background: transparent;
+    color: white !important;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .search {
+    margin-top: 48px;
+    margin-bottom: 80px;
+    margin-right: 10px;
+  }
+  .srch_c {
+    display: flex;
+    border-bottom: 1px solid white;
+    justify-content: space-between;
+  }
+
 }

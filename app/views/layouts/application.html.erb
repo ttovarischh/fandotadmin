@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Fandot</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= favicon_link_tag asset_path('favicon.png') %>
     <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
@@ -28,15 +28,61 @@
   <body>
     <%= react_component 'O_header', {current_user: current_user, current_user_id: current_user_id}%>
 
-    <div id="more">
-      <%= react_component 'A_search'%>
+    <div class="mob_header">
+      <%= link_to "../" do %>
+        <div class="why"></div>
+      <% end %>
+      <div class="m_burger" id="burger"></div>
     </div>
+    <div class="m_menu" id="menu_m">
+      <div class="mm_wrapper">
+        <div class="menu_ur">
+          <div class="m_user">
+            <% if signed_in? %>
+              <%= link_to image_tag(current_user.avatar.url, class: 'mob_a'), current_user %>
+              <p><%= link_to current_user.username, user_path(current_user) %></p>
+            <% else %>
+              <div class="comein"></div>
+              <%= link_to "Авторизация", "/users/sign_in" %>
+            <% end %>
+          </div>
+          <div class="close_m" id="cross_m">
+          </div>
+        </div>
+        <div class="search">
+          <%= react_component 'M_Search'%>
+        </div>
+        <div class="m_pages">
+          <div class="mob_link" id='big'>
+            <%= link_to "Все таймлайны", "/posts" %>
+            <div class="mob_underline"></div>
+          </div>
+          <div class="mob_link" id='big'>
+            <%= link_to "О сервисе", "/about/index" %>
+            <div class="mob_underline"></div>
+          </div>
+          <div class="mob_link" id='big'>
+            <%= link_to "Privacy policy", "/policy/index" %>
+            <div class="mob_underline"></div>
+          </div>
+        </div>
+        <div class="useless">
+          <div class="why"></div>
+          <p>© Fan. 2022</p>
+        </div>
+      </div>
+
+
+    </div>
+
 
     <%= yield %>
 
     <%= react_component 'O_footer'%>
 
     <%= javascript_pack_tag 'my_js' %>
+    <%= javascript_pack_tag 'phone'%>
+
 
 
   </body>

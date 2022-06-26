@@ -6,7 +6,7 @@
 <div class="filters">
 	<input type="text" id="non_search" maxlength="10" placeholder="Поиск по категориям">
 
-
+	<div class="scroll_mob">
 		<div class="all_categories">
 			<% Category.where(display_in_navbar: true).each do |cat| %>
 				<div class="category_tag">
@@ -17,6 +17,19 @@
 			<% end %>
 			<%= link_to "x", posts_path %>
 		</div>
+	</div>
+</div>
+
+<div class="m_sorting">
+	<p>Сортировка по:</p>
+	<div class="m_tgt">
+		<div class="sort_rate">
+			<div class="sort_icon"></div>
+			<p>рейтингу</p>
+		</div>
+		<p>комментариям</p>
+		<p>дате</p>
+	</div>
 </div>
 
 <div class="sorting">

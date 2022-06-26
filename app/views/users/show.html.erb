@@ -112,7 +112,52 @@
   </div>
 <% end%>
 
-  <div class="users_posts">
+<div class="users_posts" id="mobhide">
+  <% if user_signed_in? && @user.id == current_user.id %>
+    <h1 class="h1_g">Твои таймлайны:</h1>
+  <% elsif user_signed_in? %>
+    <h1 class="h1_g">Таймлайны пользователя</h1>
+  <% end%>
+  <div class="secondblock">
+  <% @user.posts.slice(0,1).each do |post| %>
+    <%= link_to post do %>
+    <div class="post_container">
+      <div class="pic">
+        <%= image_tag(post.image.url, alt: 'Image', class: 'cov') if post.image? %>
+        <div class="pic_overlay"></div>
+      </div>
+      <div class="info">
+        <p class="username_diff"><%= post.user.username %></p>
+        <p class="postname"><%= post.name %></p>
+        <p class="username"><%= post.user.username %></p>
+        <p class="content"><%= post.content.html_safe %></p>
+        <div className="content_diff_wrapper">
+          <p class="content_diff"><%= post.content.html_safe %></p>
+        </div>
+      </div>
+      <div class="overflow">
+        <div class="gradient"></div>
+        <div class="downinfo">
+          <div class="stats">
+            <div class="cached">
+              <span><%= post.cached_votes_score %></span>
+            </div>
+            <div class="cc">
+              <div class="comm-icon"></div>
+              <span><%= post.comments.count %></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+  <div class="users_posts" id="deskhide">
     <h1 class="h1_g">Твои таймлайны:</h1>
     <div class="secondblock">
     <% @user.posts.slice(0,3).each do |post| %>

@@ -30,42 +30,4 @@
     </div>
 
   </div>
-
-  <div class="answer">
-    <div class="comment_tie"></div>
-    <div class="answer_line">
-      <div class="">
-        <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
-      </div>
-      <div class="antwort_input">
-        <%= form_for([comment, comment.antworts.build]) do |f| %>
-          <div class="field">
-            <%= f.text_area :body, placeholder: "Хочешь еще что-то сказать?" %>
-          </div>
-          <div class="antwort_actions">
-            <%= f.submit '', :class => 'send_comment' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="answers">
-    <div class="comment_tie"></div>
-    <div class="answer_body">
-      <div class="">
-        <%= link_to image_tag(User.find(comment.user_id).avatar.url, class: 'commenter'), comment.user %>
-      </div>
-      <div class="answer_content">
-        <p class="commenter_name">
-        </p>
-
-        <% comment.antworts.each do |antwort| %>
-          <p class="answer_text">
-            <%= antwort.body %>
-          </p>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>

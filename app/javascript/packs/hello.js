@@ -39,6 +39,8 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
+
+
 function cancel(name) {
   document.getElementById("popup").style.display = "none";
   document.getElementById("p_overlay").style.display = "none";

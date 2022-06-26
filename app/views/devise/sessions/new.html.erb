@@ -1,28 +1,33 @@
 <div class="actions">
-
-  <h2>Авторизация</h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="pseudo">
+    <div class="ab">
+      <h4>Авторизация</h4>
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="memento">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, 'почта' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
-    <% end %>
 
-    <%= f.submit "войти" %>
-    <div class="linked">
-      <%= render "devise/shared/links" %>
-    </div>
+      <div class="field">
+        <%= f.label :password, 'пароль' %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+
+
+      <%= f.submit "войти" %>
+
+      <div class="magic">
+        <div class="ml vk"></div>
+        <div class="ml google"></div>
+        <div class="ml twit"></div>
+      </div>
+
+      <div class="linked">
+        <%= render "devise/shared/links" %>
+      </div>
+  </div>
   </div>
 <% end %>
